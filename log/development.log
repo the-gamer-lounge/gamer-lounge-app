@@ -1,0 +1,58 @@
+  [1m[35m (0.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "gamer_lounge_development"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "gamer_lounge_test"[0m
+  [1m[35m (154.1ms)[0m  [1m[35mCREATE DATABASE "gamer_lounge_development" ENCODING = 'unicode'[0m
+  [1m[35m (71.4ms)[0m  [1m[35mCREATE DATABASE "gamer_lounge_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6996068376138624615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221109213410)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221109213410"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-09 21:34:12.086964"], ["updated_at", "2022-11-09 21:34:12.086964"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6996068376138624615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-09 13:40:47 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1273)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/learnacademy/Desktop/gamer-lounge/public/packs
+[Webpacker] warning package.json: No license field
+
+[Webpacker] Hash: 4b0e3d3be51f3ea1f014
+Version: webpack 4.46.0
+Time: 1691ms
+Built at: 11/09/2022 1:40:51 PM
+                                          Asset      Size            Chunks                         Chunk Names
+         js/application-063660d86940410a956c.js  1.73 MiB       application  [emitted] [immutable]  application
+     js/application-063660d86940410a956c.js.map  1.96 MiB       application  [emitted] [dev]        application
+         js/hello_react-8773b8f511ecf030b171.js  1.24 MiB       hello_react  [emitted] [immutable]  hello_react
+     js/hello_react-8773b8f511ecf030b171.js.map  1.41 MiB       hello_react  [emitted] [dev]        hello_react
+    js/server_rendering-5313d3a4abac1184eeb1.js  1.73 MiB  server_rendering  [emitted] [immutable]  server_rendering
+js/server_rendering-5313d3a4abac1184eeb1.js.map  1.96 MiB  server_rendering  [emitted] [dev]        server_rendering
+                                  manifest.json  1.05 KiB                    [emitted]              
+Entrypoint application = js/application-063660d86940410a956c.js js/application-063660d86940410a956c.js.map
+Entrypoint hello_react = js/hello_react-8773b8f511ecf030b171.js js/hello_react-8773b8f511ecf030b171.js.map
+Entrypoint server_rendering = js/server_rendering-5313d3a4abac1184eeb1.js js/server_rendering-5313d3a4abac1184eeb1.js.map
+[./app/javascript/components sync recursive ^\.\/.*$] ./app/javascript/components sync ^\.\/.*$ 183 bytes {application} {server_rendering} [built]
+[./app/javascript/packs/application.js] 214 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 1.07 KiB {hello_react} [built]
+[./app/javascript/packs/server_rendering.js] 299 bytes {server_rendering} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 474 bytes {application} {hello_react} {server_rendering} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 547 bytes {application} {hello_react} {server_rendering} [built]
+    + 32 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 3304.6ms | Allocations: 98410)
+Completed 200 OK in 3315ms (Views: 3307.9ms | ActiveRecord: 0.0ms | Allocations: 105017)
+
+
