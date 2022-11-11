@@ -9,6 +9,7 @@ import ReviewProtectedIndex from "./pages/ReviewProtectedIndex"
 import EditProtected from "./pages/EditProtected"
 import CreateProtected from "./pages/CreateProtected"
 import NotFound from "./pages/NotFound"
+import Footer from "./components/Footer"
 
 const App = (props) => {
   return (
@@ -28,6 +29,7 @@ const App = (props) => {
           <Route path="/createprotected" element={<CreateProtected />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer {...props} />
       </BrowserRouter>
     </>
   )
