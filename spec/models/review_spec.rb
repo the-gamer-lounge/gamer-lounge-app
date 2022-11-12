@@ -18,7 +18,6 @@ RSpec.describe Review, type: :model do
     review = Review.create(
       user_id: user.id,
       game_id: game.id,
-      review: "",
       accessibility: "Yes",
       difficulty: 4,
       rating: 4.0
