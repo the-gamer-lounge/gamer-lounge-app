@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
   def index
     reviews = Review.all
     render json: reviews
@@ -40,7 +41,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:game_id, :review, :accessibility, :difficulty, :rating)
+    params.require(:review).permit(:game_id, :user_id, :review, :accessibility, :difficulty, :rating)
   end
 
 end
