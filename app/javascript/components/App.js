@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Header from "./components/Header"
@@ -10,22 +11,40 @@ import EditProtected from "./pages/EditProtected"
 import CreateProtected from "./pages/CreateProtected"
 import NotFound from "./pages/NotFound"
 import Footer from "./components/Footer"
+import mockGames from "./mockGames"
+import mockReviews from "./mockReviews"
 
 const App = (props) => {
+  const [games, setGames] = useState(mockGames)
+  const [reviews, setReviews] = useState(mockReviews)
+  console.log(reviews, games)
+
   return (
     <>
       <BrowserRouter>
         <Header {...props} />
         <Routes>
-          <Route path="/" element={<Home {...props} />} />
-          <Route path="/gameprotectedindex" element={<GameProtectedIndex />} />
-          <Route path="/gameindex" element={<GameIndex />} />
-          <Route path="/gameshow" element={<GameShow />} />
+          <Route
+            path="/"
+            element={<Home {...props} games={games} reviews={reviews} />}
+          />
+          <Route
+            path="/gameprotectedindex"
+            element={<GameProtectedIndex games={games} />}
+          />
+          <Route path="/gameindex" element={<GameIndex games={games} />} />
+          <Route
+            path="/gameshow"
+            element={<GameShow games={games} reviews={reviews} />}
+          />
           <Route
             path="/reviewprotectedindex"
-            element={<ReviewProtectedIndex />}
+            element={<ReviewProtectedIndex reviews={reviews} />}
           />
-          <Route path="/editprotected" element={<EditProtected />} />
+          <Route
+            path="/editprotected"
+            element={<EditProtected reviews={reviews} />}
+          />
           <Route path="/createprotected" element={<CreateProtected />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
