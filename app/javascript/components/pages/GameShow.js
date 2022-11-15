@@ -30,14 +30,7 @@ const GameShow = ({ games, reviews, current_user }) => {
           <h4>Genre</h4>
           <p>{showGame.genre}</p>
         </div>
-        <div className="flex-row">
-          {/* <a href={`/gameshow/${game.id}`}>See Reviews</a> */}
-          {/* {logged_in && (
-        <a href="/createprotected" onClick={gameId}>
-          Add Review
-        </a>
-      )} */}
-        </div>
+        <div className="flex-row"></div>
       </div>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {reviews

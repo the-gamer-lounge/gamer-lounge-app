@@ -75,7 +75,6 @@ describe("<GameShow />", () => {
     const gameDeveloper = screen.getByText(testGame[0].developer);
     expect(gameDeveloper).toBeInTheDocument();
   });
-
   //   testing for the reviews portion of the /gameshow/:id page
   it("renders the username for the review", () => {
     const testReview = mockReviews.filter((review) => review.game_id === 1);
