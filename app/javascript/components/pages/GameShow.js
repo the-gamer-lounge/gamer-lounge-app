@@ -43,7 +43,6 @@ const GameShow = ({ games, reviews, current_user }) => {
         {reviews
           ?.filter((review) => review.game_id === showGame.id)
           .map((review, index) => {
-            console.log(reviews.id);
             return (
               <Grid item key={index}>
                 <div className="review-card">
