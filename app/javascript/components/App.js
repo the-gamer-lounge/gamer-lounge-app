@@ -33,7 +33,7 @@ const App = (props) => {
           />
           <Route
             path="/gameshow/:id"
-            element={<GameShow games={games} reviews={reviews} />}
+            element={<GameShow games={games} reviews={reviews} {...props} />}
           />
           <Route
             path="/reviewprotectedindex"
