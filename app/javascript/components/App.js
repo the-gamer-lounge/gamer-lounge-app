@@ -17,6 +17,7 @@ const App = (props) => {
   const [games, setGames] = useState(mockGames)
   const [reviews, setReviews] = useState(mockReviews)
 
+
 const deleteReview = (id) => {
 }
 
@@ -36,7 +37,7 @@ const deleteReview = (id) => {
           />
           <Route
             path="/gameshow/:id"
-            element={<GameShow games={games} reviews={reviews} />}
+            element={<GameShow games={games} reviews={reviews} {...props} />}
           />
           <Route
             path="/reviewprotectedindex"
