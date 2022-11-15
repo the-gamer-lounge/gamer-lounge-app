@@ -14,9 +14,7 @@ const GameIndex = ({ logged_in, games }) => {
                 <div className="flex-row">
                   <a href={`/gameshow/${game.id}`}>See Reviews</a>
                   {logged_in && (
-                    <a href="/createprotected" onClick={gameId}>
-                      Add Review
-                    </a>
+                    <a href={`/createprotected/${game.id}`}>Add Review</a>
                   )}
                 </div>
               </div>
