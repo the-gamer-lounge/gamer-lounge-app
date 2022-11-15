@@ -3,7 +3,6 @@ import { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Header from "./components/Header"
-import GameProtectedIndex from "./pages/GameProtectedIndex"
 import GameIndex from "./pages/GameIndex"
 import GameShow from "./pages/GameShow"
 import ReviewProtectedIndex from "./pages/ReviewProtectedIndex"
@@ -28,13 +27,13 @@ const App = (props) => {
             path="/"
             element={<Home {...props} games={games} reviews={reviews} />}
           />
+
           <Route
-            path="/gameprotectedindex"
-            element={<GameProtectedIndex games={games} />}
+            path="/gameindex"
+            element={<GameIndex games={games} {...props} />}
           />
-          <Route path="/gameindex" element={<GameIndex games={games} />} />
           <Route
-            path="/gameshow"
+            path="/gameshow/:id"
             element={<GameShow games={games} reviews={reviews} />}
           />
           <Route
