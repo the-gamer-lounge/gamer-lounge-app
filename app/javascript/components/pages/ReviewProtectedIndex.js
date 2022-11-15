@@ -13,7 +13,12 @@ const ReviewProtectedIndex = ({ logged_in, reviews, current_user, deleteReview }
             const reviewId = review.id
           }
           const handleClick = () => {
-            deleteReview(review.id)
+            const response = confirm("Are you sure you want to delete this review as this cannot be undone.") 
+            if (response) {
+              deleteReview(review.id)
+            } else if (!response) {
+              console.log("Action cancelled")
+            }
           }
           return (
             <Grid item key={index}>
@@ -23,7 +28,7 @@ const ReviewProtectedIndex = ({ logged_in, reviews, current_user, deleteReview }
                 <div> <p>{review.rating}</p> </div>
                </div>
                <div> <p>{review.review}</p> </div>
-               <div> <a href ={`/editprotected/${review.id}`}> Edit Review </a> <a href={"#"}onClick={handleClick}> Delete Review </a> </div>
+               <div> <a href ={`/editprotected/${review.id}`}> Edit Review </a> <a href={"#"} onClick={handleClick}> Delete Review </a> </div>
               </div>
             </Grid>
           )
