@@ -17,7 +17,6 @@ const ReviewProtectedIndex = ({ logged_in, reviews, current_user, deleteReview }
             if (response) {
               deleteReview(review.id)
             } else if (!response) {
-              console.log("Action cancelled")
             }
           }
           return (

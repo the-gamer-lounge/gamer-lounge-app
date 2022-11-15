@@ -16,10 +16,8 @@ import mockReviews from "./mockReviews"
 const App = (props) => {
   const [games, setGames] = useState(mockGames)
   const [reviews, setReviews] = useState(mockReviews)
-  console.log(reviews, games)
 
 const deleteReview = (id) => {
-  console.log(id)
 }
 
   return (
