@@ -12,7 +12,12 @@ import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"
 
-const Header = ({ logged_in, current_user, sign_out_route }) => {
+const Header = ({
+  logged_in,
+  sign_out_route,
+  new_user_route,
+  sign_in_route,
+}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -75,6 +80,9 @@ const Header = ({ logged_in, current_user, sign_out_route }) => {
                   <a href="/gameindex">Games</a>
                   <a href="/">Home</a>
                   {logged_in && <a href="/reviewprotectedindex">My Reviews</a>}
+                  {logged_in && <a href={sign_out_route}>Log Out</a>}
+                  {!logged_in && <a href={new_user_route}>Sign Up</a>}
+                  {!logged_in && <a href={sign_in_route}>Sign In</a>}
                 </div>
               </MenuItem>
             </Menu>
@@ -85,6 +93,9 @@ const Header = ({ logged_in, current_user, sign_out_route }) => {
               <a href="/gameindex">Games</a>
               <a href="/">Home</a>
               {logged_in && <a href="/reviewprotectedindex">My Reviews</a>}
+              {logged_in && <a href={sign_out_route}>Log Out</a>}
+              {!logged_in && <a href={new_user_route}>Sign Up</a>}
+              {!logged_in && <a href={sign_in_route}>Sign In</a>}
             </div>
           </Box>
           {logged_in && (
