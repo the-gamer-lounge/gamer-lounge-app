@@ -18,6 +18,10 @@ const App = (props) => {
   const [reviews, setReviews] = useState(mockReviews)
   console.log(reviews, games)
 
+const deleteReview = (id) => {
+  console.log(id)
+}
+
   return (
     <>
       <BrowserRouter>
@@ -38,10 +42,10 @@ const App = (props) => {
           />
           <Route
             path="/reviewprotectedindex"
-            element={<ReviewProtectedIndex reviews={reviews} />}
+            element={<ReviewProtectedIndex reviews={reviews} {...props} />}
           />
           <Route
-            path="/editprotected"
+            path="/editprotected/:id"
             element={<EditProtected reviews={reviews} />}
           />
           <Route path="/createprotected" element={<CreateProtected />} />
