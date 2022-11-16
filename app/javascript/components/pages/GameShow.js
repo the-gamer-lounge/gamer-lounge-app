@@ -8,6 +8,8 @@ const GameShow = ({ games, reviews, current_user }) => {
   const showGame = games?.find((game) => game.id === +id);
   return (
     <>
+    {showGame && 
+    <>
       <div className="game-card">
         <img src={showGame.image} width="500px" />
         <div className="game-info-1">
@@ -62,6 +64,8 @@ const GameShow = ({ games, reviews, current_user }) => {
             );
           })}
       </Grid>
+      </>
+        }
     </>
   );
 };
