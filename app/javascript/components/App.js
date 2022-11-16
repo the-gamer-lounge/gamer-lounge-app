@@ -17,6 +17,7 @@ const App = (props) => {
   const [games, setGames] = useState([])
   const [reviews, setReviews] = useState([])
 
+
 useEffect(() => {
   readGame()
 }, [])
@@ -27,6 +28,7 @@ useEffect(() => {
 
 const deleteReview = (id) => {
 }
+
 
 const readGame = () => {
   fetch("http://localhost:3000/games")
@@ -72,7 +74,10 @@ const readReview = () => {
             path="/editprotected/:id"
             element={<EditProtected reviews={reviews} />}
           />
-          <Route path="/createprotected" element={<CreateProtected />} />
+          <Route
+            path="/createprotected/:id"
+            element={<CreateProtected {...props} games={games} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer {...props} />

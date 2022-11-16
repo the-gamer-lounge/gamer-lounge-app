@@ -22,6 +22,10 @@
 /* OTHER STYLES */
 /* ----------- */
 
+/* ---------- */
+/* GAME SHOW */
+/* -------- */
+
 .game-card {
   display: flex;
   flex-direction: column;
@@ -29,9 +33,28 @@
   align-items: center;
 }
 
+/* ----------------- */
+/* PROTECTED REVIEW */
+/* --------------- */
+
 .review-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* -------------- */
+/* CREATE REVIEW */
+/* ------------ */
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn {
+  justify-self: flex-start;
 }
