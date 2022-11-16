@@ -8,27 +8,29 @@ const GameShow = ({ games, reviews, current_user }) => {
   const showGame = games?.find((game) => game.id === +id);
   return (
     <>
+    {showGame && 
+    <>
       <div className="game-card">
-        <img src={showGame?.image} width="500px" />
+        <img src={showGame.image} width="500px" />
         <div className="game-info-1">
           <h4>Title</h4>
-          <p>{showGame?.title}</p>
+          <p>{showGame.title}</p>
           <h4>Description</h4>
-          <p>{showGame?.description}</p>
+          <p>{showGame.description}</p>
         </div>
         <div className="game-info-2">
           <h4>Price</h4>
-          <p>{showGame?.price}</p>
+          <p>{showGame.price}</p>
           <h4>Release Date:</h4>
-          <p>{showGame?.release}</p>
+          <p>{showGame.release}</p>
           <h4>Developers</h4>
-          <p>{showGame?.developer}</p>
+          <p>{showGame.developer}</p>
           <h4>Platforms</h4>
-          <p>{showGame?.platforms}</p>
+          <p>{showGame.platforms}</p>
           <h4>Single/Multiplayer</h4>
-          <p>{showGame?.player}</p>
+          <p>{showGame.player}</p>
           <h4>Genre</h4>
-          <p>{showGame?.genre}</p>
+          <p>{showGame.genre}</p>
         </div>
         <div className="flex-row"></div>
       </div>
@@ -62,6 +64,8 @@ const GameShow = ({ games, reviews, current_user }) => {
             );
           })}
       </Grid>
+      </>
+        }
     </>
   );
 };
