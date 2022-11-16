@@ -72,7 +72,9 @@ const readReview = () => {
           />
           <Route
             path="/editprotected/:id"
-            element={<EditProtected reviews={reviews} />}
+            element={
+              <EditProtected reviews={reviews} games={games} {...props} />
+            }
           />
           <Route
             path="/createprotected/:id"
