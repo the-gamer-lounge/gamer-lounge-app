@@ -25,7 +25,6 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
 
   const handleChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value })
-    console.log("newReview:", newReview, "Value:", e.target.value)
   }
 
   const handleSubmit = () => {
