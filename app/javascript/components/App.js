@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
@@ -14,10 +14,39 @@ import mockGames from "./mockGames"
 import mockReviews from "./mockReviews"
 
 const App = (props) => {
-  const [games, setGames] = useState(mockGames)
-  const [reviews, setReviews] = useState(mockReviews)
+  const [games, setGames] = useState([])
+  const [reviews, setReviews] = useState([])
 
-  const deleteReview = (id) => {}
+
+useEffect(() => {
+  readGame()
+}, [])
+
+useEffect(() => {
+  readReview()
+}, [])
+
+const deleteReview = (id) => {
+}
+
+
+const readGame = () => {
+  fetch("http://localhost:3000/games")
+  .then((response) => response.json())
+  .then((payload) => {
+    setGames(payload)
+  })
+  .catch((error) => console.log(error)) 
+}
+
+const readReview = () => {
+  fetch("http://localhost:3000/reviews")
+  .then((response) => response.json())
+  .then((payload) => {
+    setReviews(payload)
+  })
+  .catch((error) => console.log(error))
+}
 
   return (
     <>
@@ -31,7 +60,7 @@ const App = (props) => {
 
           <Route
             path="/gameindex"
-            element={<GameIndex games={games} {...props} />}
+            element={<GameIndex games={games} {...props}  />}
           />
           <Route
             path="/gameshow/:id"
