@@ -17,9 +17,7 @@ const App = (props) => {
   const [games, setGames] = useState(mockGames)
   const [reviews, setReviews] = useState(mockReviews)
 
-
-const deleteReview = (id) => {
-}
+  const deleteReview = (id) => {}
 
   return (
     <>
@@ -47,7 +45,10 @@ const deleteReview = (id) => {
             path="/editprotected/:id"
             element={<EditProtected reviews={reviews} />}
           />
-          <Route path="/createprotected" element={<CreateProtected />} />
+          <Route
+            path="/createprotected/:id"
+            element={<CreateProtected {...props} games={games} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer {...props} />
