@@ -49,14 +49,14 @@ const readReview = () => {
 }
 
 const createReview = (review) => {
-  fetch("http://localhost:3000/reviews", {
+  fetch("/reviews", {
     body: JSON.stringify(review),
     headers: {
       "Content-Type": "application/json"
     },
     method: "POST"
   })
-  .then((response) => response.json())
+  .then((response) => console.log(response.json()))
   .then((payload) => readReview())
   .catch((errors) => console.log(errors))
 }
