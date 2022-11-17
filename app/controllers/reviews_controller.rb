@@ -11,13 +11,11 @@ class ReviewsController < ApplicationController
   end
   
   def create 
-    # byebug
     review = Review.create(review_params)
     if review.valid?
       render json: review
     else 
       render json: review.errors, status: 422
-      p review.errors
     end
   end
 

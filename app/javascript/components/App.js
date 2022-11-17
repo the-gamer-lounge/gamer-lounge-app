@@ -26,8 +26,6 @@ useEffect(() => {
   readReview()
 }, [])
 
-const deleteReview = (id) => {
-}
 
 
 const readGame = () => {
@@ -61,6 +59,7 @@ const createReview = (review) => {
   .catch((errors) => console.log(errors))
 }
 
+
 const updateReview = (review, id) => {
   fetch(`http://localhost:3000/reviews/${id}`, {
     body: JSON.stringify(review),
@@ -72,6 +71,19 @@ const updateReview = (review, id) => {
   .then((response) => response.json())
   .then(() => readReview())
   .catch((errors) => console.log("Review Create Errors:", errors))
+  }
+
+
+const deleteReview = (id) => {
+  fetch(`/reviews/${id}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "DELETE"
+  })
+  .then((response) => response.json())
+  .then((payload) => readReview())
+  .catch((error) => console.log(error)) 
 }
 
   return (
@@ -94,7 +106,7 @@ const updateReview = (review, id) => {
           />
           <Route
             path="/reviewprotectedindex"
-            element={<ReviewProtectedIndex reviews={reviews} {...props} />}
+            element={<ReviewProtectedIndex reviews={reviews} {...props} deleteReview={deleteReview}/>}
           />
           <Route
             path="/editprotected/:id"

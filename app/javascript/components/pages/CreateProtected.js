@@ -27,8 +27,8 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
   });
 
   const handleChange = (e) => {
-    setNewReview({ ...newReview, [e.target.name]: e.target.value })
-  }
+    setNewReview({ ...newReview, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = () => {
     setNewReview(parseInt(newReview.difficulty))
@@ -128,6 +128,6 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
         </>
     </>
   );
-};
+}
 
 export default CreateProtected;
