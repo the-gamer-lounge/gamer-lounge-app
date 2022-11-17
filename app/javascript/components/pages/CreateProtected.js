@@ -28,9 +28,14 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
   console.log(currentGame);
 
   const handleChange = (e) => {
+
     setNewReview({ ...newReview, [e.target.name]: e.target.value });
     console.log("newReview:", newReview, "Value:", e.target.value);
   };
+
+    setNewReview({ ...newReview, [e.target.name]: e.target.value })
+  }
+
 
   const handleSubmit = () => {
     setNewReview(parseInt(newReview.difficulty))
