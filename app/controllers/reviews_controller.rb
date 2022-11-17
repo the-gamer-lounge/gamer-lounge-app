@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
       render json: review
     else 
       render json: review.errors, status: 422
+      p review.errors
     end
   end
 
@@ -34,7 +35,7 @@ class ReviewsController < ApplicationController
     if review.destroy
       render json: review
     else
-      render json: apartment.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
 

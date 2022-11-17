@@ -48,6 +48,19 @@ const readReview = () => {
   .catch((error) => console.log(error))
 }
 
+const createReview = (review) => {
+  fetch("http://localhost:3000/reviews", {
+    body: JSON.stringify(review),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "POST"
+  })
+  .then((response) => response.json())
+  .then((payload) => readReview())
+  .catch((errors) => console.log(errors))
+}
+
   return (
     <>
       <BrowserRouter>
@@ -76,7 +89,7 @@ const readReview = () => {
           />
           <Route
             path="/createprotected/:id"
-            element={<CreateProtected {...props} games={games} />}
+            element={<CreateProtected {...props} games={games} createReview={createReview}/>}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

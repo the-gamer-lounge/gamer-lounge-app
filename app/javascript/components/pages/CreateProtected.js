@@ -1,38 +1,42 @@
-import * as React from "react"
-import { useState } from "react"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
-import TextField from "@mui/material/TextField"
-import Select from "@mui/material/Select"
-import MenuItem from "@mui/material/MenuItem"
-import FormControl from "@mui/material/FormControl"
-import FormHelperText from "@mui/material/FormHelperText"
-import InputLabel from "@mui/material/InputLabel"
+import * as React from "react";
+import { useState } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
+import InputLabel from "@mui/material/InputLabel";
+import { string } from "prop-types";
 
 const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
-  const { id } = useParams()
-  let currentGame = games?.find((game) => game.id === +id)
+  const { id } = useParams();
+  let currentGame = games?.find((game) => game.id === +id);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [newReview, setNewReview] = useState({
     username: current_user.username,
-    game_id: currentGame.id,
+    game_id: id,
     accessibility: "",
-    difficulty: null,
+    difficulty: "",
     review: "",
-    rating: null,
-  })
+    rating: "",
+  });
+  console.log(currentGame) 
 
   const handleChange = (e) => {
-    setNewReview({ ...newReview, [e.target.name]: e.target.value })
-    console.log("newReview:", newReview, "Value:", e.target.value)
-  }
+    setNewReview({ ...newReview, [e.target.name]: e.target.value });
+    console.log("newReview:", newReview, "Value:", e.target.value);
+  };
 
   const handleSubmit = () => {
-    alert("Thanks for your input! Your review has been successfully submitted.")
-    createReview(newReview)
-    navigate("/gameindex")
-  }
+    alert(
+      "Thanks for your input! Your review has been successfully submitted."
+    );
+    createReview(newReview);
+    navigate("/gameindex");
+  };
 
   return (
     <>
@@ -41,9 +45,8 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
           <a href="/gameindex" className="back-btn">
             Back to Games
           </a>
-          <p>Review For: {currentGame.title}</p>
+          <p>Review For: {currentGame?.title}</p>
         </div>
-        <form>
           <div className="flex-row">
             {/* Input for Accessibility */}
             <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -120,10 +123,9 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
           <div className="flex-row">
             <button onClick={handleSubmit}>Submit</button>
           </div>
-        </form>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default CreateProtected
+export default CreateProtected;
