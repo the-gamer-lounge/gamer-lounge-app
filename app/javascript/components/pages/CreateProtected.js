@@ -22,7 +22,7 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
     user_id: current_user.id,
     accessibility: "",
     difficulty: 0,
-    review: "",
+    review_text: "",
     rating: 0,
   });
   console.log(currentGame);
@@ -110,7 +110,7 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
                 <TextField
                   label="Review"
                   variant="outlined"
-                  name="review"
+                  name="review_text"
                   onChange={handleChange}
                   className="form-input"
                   multiline

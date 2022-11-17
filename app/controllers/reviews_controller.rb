@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   end
   
   def create 
+    # byebug
     review = Review.create(review_params)
     if review.valid?
       render json: review
@@ -42,7 +43,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:game_id, :user_id, :review, :accessibility, :difficulty, :rating, :username)
+    params.require(:review).permit(:game_id, :user_id, :review_text, :accessibility, :difficulty, :rating, :username)
   end
 
 end

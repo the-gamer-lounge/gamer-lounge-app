@@ -56,7 +56,7 @@ const createReview = (review) => {
     },
     method: "POST"
   })
-  .then((response) => console.log(response.json()))
+  .then((response) => response.json())
   .then((payload) => readReview())
   .catch((errors) => console.log(errors))
 }
