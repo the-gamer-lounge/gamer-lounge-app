@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import TextField from "@mui/material/TextField"
 import Select from "@mui/material/Select"
@@ -8,41 +8,40 @@ import FormControl from "@mui/material/FormControl"
 import FormHelperText from "@mui/material/FormHelperText"
 import InputLabel from "@mui/material/InputLabel"
 
-const EditProtected = ({ games, reviews, current_user }) => {
+const EditProtected = ({ games, reviews, current_user, updateReview }) => {
   const { id } = useParams()
-  let currentReview = reviews?.find((review) => review.id === +id)
+  let currentReview = reviews?.find((review) => review?.id === +id)
 
-  const currentGame = games?.find((game) => game.id === currentReview.game_id)
-  console.log("currentGame", currentGame, "game_id", currentReview.game_id)
+  const currentGame = games?.find((game) => game.id === currentReview?.game_id)
 
   const navigate = useNavigate()
 
   const [editReview, setEditReview] = useState({
-    username: currentReview?.username,
-    accessibility: currentReview?.accessibility,
-    difficulty: currentReview?.difficulty,
-    review: currentReview?.review,
-    rating: currentReview?.rating,
+    accessibility: "",
+    difficulty: "",
+    review_text: "",
+    rating: "",
   })
-
+  
   const handleChange = (e) => {
     setEditReview({ ...editReview, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = () => {
-    updateReview(editReview, currentReview.id)
+    updateReview(editReview, currentReview?.id)
     alert("Your review has been successfully updated.")
     navigate("/reviewprotectedindex")
   }
 
   return (
     <>
+    {editReview &&
       <div className="form-wrapper">
         <div className="flex-row">
           <a href="/reviewprotectedindex" className="back-btn">
             Back to Reviews
           </a>
-          <p>Review For: {currentGame.title}</p>
+          <p>Review For: {currentGame?.title}</p>
         </div>
         <form>
           <div className="flex-row">
@@ -106,9 +105,9 @@ const EditProtected = ({ games, reviews, current_user }) => {
             <FormControl>
               <TextField
                 label="Review"
-                value={editReview.review}
+                value={editReview.review_text}
                 variant="outlined"
-                name="review"
+                name="review_text"
                 onChange={handleChange}
                 className="form-input"
                 multiline
@@ -126,6 +125,7 @@ const EditProtected = ({ games, reviews, current_user }) => {
           </div>
         </form>
       </div>
+      }
     </>
   )
 }
