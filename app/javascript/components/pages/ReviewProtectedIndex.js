@@ -22,7 +22,7 @@ const ReviewProtectedIndex = ({ logged_in, reviews, current_user, deleteReview }
                 <div> <p>{current_user.username}</p> <p>{review.difficulty}</p> <p>{review.accessibility}</p> </div>
                 <div> <p>{review.rating}</p> </div>
                </div>
-               <div> <p>{review.review}</p> </div>
+               <div> <p>{review.review_text}</p> </div>
                <div> <a href ={`/editprotected/${review.id}`}> Edit Review </a> <a href={"#"} onClick={handleClick}> Delete Review </a> </div>
               </div>
             </Grid>

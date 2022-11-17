@@ -25,17 +25,10 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
     review_text: "",
     rating: 0,
   });
-  console.log(currentGame);
 
   const handleChange = (e) => {
-
-    setNewReview({ ...newReview, [e.target.name]: e.target.value });
-    console.log("newReview:", newReview, "Value:", e.target.value);
-  };
-
     setNewReview({ ...newReview, [e.target.name]: e.target.value })
   }
-
 
   const handleSubmit = () => {
     setNewReview(parseInt(newReview.difficulty))
@@ -46,7 +39,6 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
 
   return (
     <>
-      {createReview && (
         <>
           <div className="form-wrapper">
             <div className="flex-row">
@@ -134,7 +126,6 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
             </div>
           </div>
         </>
-      )}
     </>
   );
 };

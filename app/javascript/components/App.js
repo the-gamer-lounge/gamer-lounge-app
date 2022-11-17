@@ -61,6 +61,19 @@ const createReview = (review) => {
   .catch((errors) => console.log(errors))
 }
 
+const updateReview = (review, id) => {
+  fetch(`http://localhost:3000/reviews/${id}`, {
+    body: JSON.stringify(review),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "PATCH"
+  })
+  .then((response) => response.json())
+  .then(() => readReview())
+  .catch((errors) => console.log("Review Create Errors:", errors))
+}
+
   return (
     <>
       <BrowserRouter>
@@ -86,7 +99,7 @@ const createReview = (review) => {
           <Route
             path="/editprotected/:id"
             element={
-              <EditProtected reviews={reviews} games={games} {...props} />
+              <EditProtected reviews={reviews} games={games} updateReview={updateReview} {...props} />
             }
           />
           <Route
