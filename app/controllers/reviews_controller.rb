@@ -11,11 +11,13 @@ class ReviewsController < ApplicationController
   end
   
   def create 
+    # byebug
     review = Review.create(review_params)
     if review.valid?
       render json: review
     else 
       render json: review.errors, status: 422
+      p review.errors
     end
   end
 
@@ -34,14 +36,14 @@ class ReviewsController < ApplicationController
     if review.destroy
       render json: review
     else
-      render json: apartment.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:game_id, :user_id, :review, :accessibility, :difficulty, :rating)
+    params.require(:review).permit(:game_id, :user_id, :review_text, :accessibility, :difficulty, :rating, :username)
   end
 
 end
