@@ -26,8 +26,6 @@ useEffect(() => {
   readReview()
 }, [])
 
-const deleteReview = (id) => {
-}
 
 
 const readGame = () => {
@@ -61,6 +59,18 @@ const createReview = (review) => {
   .catch((errors) => console.log(errors))
 }
 
+const deleteReview = (id) => {
+  fetch(`/reviews/${id}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "DELETE"
+  })
+  .then((response) => response.json())
+  .then((payload) => readReview())
+  .catch((error) => console.log(error)) 
+}
+
   return (
     <>
       <BrowserRouter>
@@ -81,7 +91,7 @@ const createReview = (review) => {
           />
           <Route
             path="/reviewprotectedindex"
-            element={<ReviewProtectedIndex reviews={reviews} {...props} />}
+            element={<ReviewProtectedIndex reviews={reviews} {...props} deleteReview={deleteReview}/>}
           />
           <Route
             path="/editprotected/:id"
