@@ -1,13 +1,90 @@
-/* ----------------- */
-/* UNIVERSAL STYLES */
-/* --------------- */
+/*********************-------------------- STYLE GUIDE --------------------*********************
+
+*********------------------------- PALETTE: -------------------------*********
+
+*********------------------------- SPACING: -------------------------*********
+
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 62 / 80 / 96 / 128
+
+(these are in px, the rem equivalent would look like this: 128px === 1.28rem, 32px === 3.2rem.
+
+*********--------------------------- FONT: ---------------------------*********
+
+Family: Poppins
+
+--------------- FONT SIZES (px): ---------------
+
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+--------------- WEIGHT: ---------------
+
+Light: 200
+
+Regular: 400
+
+Medium: 500
+
+Bold: 700
+
+--------------- LINE HEIGHT: ---------------
+
+Paragraph Default: 1.6
+
+Default: 1
+
+Small: 1.05
+
+Medium: 1.2
+
+Large: 1.8
+
+--------------- BORDER RADIUS: ---------------
+
+Default: 5px
+
+--------------- SHADOWS: ---------------
+
+
+*/
+
+/************************************************************************************************/
+/*------------------------------------- UNIVERSAL STYLES ------------------------------------- */
+/**********************************************************************************************/
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  background-color: #010101;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/*-------------------------------------- FLEX PROPERTIES --------------------------------------*/
+/* ------------------------------------------------------------------------------------------ */
 
 .flex-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2.4rem;
 }
 
 .flex-column {
@@ -15,7 +92,124 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/*---------------------------------- UNIVERSAL MARGIN ----------------------------------*/
+/* ------------------------------------------------------------------------------------------- */
+
+.mar-btm-xl {
+  margin-bottom: 12.8rem;
+}
+
+.mar-btm-lg {
+  margin-bottom: 6.2rem;
+}
+
+.mar-btm-md {
+  margin-bottom: 3.2rem;
+}
+
+.mar-btm-sm {
+  margin-bottom: 2.4rem;
+}
+
+h1 {
+  font-size: 9.6rem;
+  font-weight: 700;
+  background: -webkit-linear-gradient(270deg, #05d2ed, #b100ca);
+  /* filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.9)); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 6.2rem;
+  font-weight: 500;
+  background: -webkit-linear-gradient(#b100ca, #05d2ed);
+  /* filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.9)); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.btn {
+  font-size: 2.4rem;
+  font-weight: 200;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #120618;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.btn:before {
+  content: "";
+  background: linear-gradient(45deg, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(3px);
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.btn:active {
+  color: #fff;
+}
+
+.btn:active:after {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.707);
+}
+
+.btn:hover:before {
+  opacity: 1;
+}
+
+.btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #020307;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /* ------------- */
@@ -31,6 +225,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.game-img {
+  width: 40rem;
 }
 
 /* ----------------- */
@@ -57,4 +255,98 @@
 
 .back-btn {
   justify-self: flex-start;
+}
+/* ----------------------------------------------------- */
+/*-------------------- LOGGED IN HOME --------------------*/
+/* --------------------------------------------------- */
+
+.dashboard-home {
+  height: 90vh;
+  width: 75vw;
+}
+
+/* ----------------------------------------------------- */
+/*-------------------- HERO SECTION --------------------*/
+/* --------------------------------------------------- */
+
+.hero-content {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.8),
+      rgb(0, 0, 0)
+    ),
+    url(https://images.unsplash.com/photo-1546640646-89b557854b23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+/* ----------------------------------------------------- */
+/*-------------------- HOW IT WORKS --------------------*/
+/* --------------------------------------------------- */
+
+.how-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9.6rem;
+}
+
+.how-card {
+  background-color: #5d02a8da;
+  padding: 2.4rem;
+  width: 30rem;
+  border-radius: 5px;
+}
+
+.how-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #05d2ed;
+  width: 100%;
+  height: 17.8rem;
+}
+
+/* ------------------------------------------------- */
+/*-------------------- ABOUT US --------------------*/
+/* ----------------------------------------------- */
+
+.about-card {
+  width: 100rem;
+  flex-wrap: wrap;
+}
+
+.image-circle {
+  align-self: center;
+  width: 25rem;
+  height: 25rem;
+  background-image: url(https://images.pexels.com/photos/670720/pexels-photo-670720.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.about-me-text {
+  width: 60rem;
+}
+
+.about-text-middle {
+  text-align: right;
 }
