@@ -12,74 +12,78 @@ const Home = ({
   if (logged_in) {
     return (
       <>
-        <div className="dashboard-home flex-row">
-          <div className="recent-games">
-            <h3 className="flex-center mar-btm-sm">Recent Games</h3>
-            {games?.map((game, index) => {
-              return (
-                <div className="game-card flex-column" key={index}>
-                  <img src={game.image} className="game-img" />
-                  <p>{game.title}</p>
-                  <div className="flex-row">
-                    <a href={`/gameshow/${game.id}`}>See Reviews</a>
-                    {logged_in && (
-                      <a href={`/createprotected/${game.id}`}>Add Review</a>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <div className="welcome-column flex-column">
-            <div className="user-welcome">
-              <h2>Welcome Back, {current_user.username}!</h2>
-            </div>
-            <div className="recent-reviews">
-              {reviews
-                ?.filter((review) => review.user_id === current_user.id)
-                .map((review, index) => {
-                  const handleClick = () => {
-                    const response = confirm(
-                      "Are you sure you want to delete this review as this cannot be undone."
-                    )
-                    if (response) {
-                      deleteReview(review.id)
-                    } else if (!response) {
-                    }
-                  }
-
-                  return (
-                    <div className="review-card" key={index}>
-                      <div className="flex-row">
-                        <div>
-                          {" "}
-                          <p>{current_user.username}</p>{" "}
-                          <p>{review.difficulty}</p>{" "}
-                          <p>{review.accessibility}</p>{" "}
-                        </div>
-                        <div>
-                          {" "}
-                          <p>{review.rating}</p>{" "}
-                        </div>
-                      </div>
-                      <div>
-                        {" "}
-                        <p>{review.review_text}</p>{" "}
-                      </div>
-                      <div>
-                        {" "}
-                        <a href={`/editprotected/${review.id}`}>
-                          {" "}
-                          Edit Review{" "}
-                        </a>{" "}
-                        <a href={"#"} onClick={handleClick}>
-                          {" "}
-                          Delete Review{" "}
-                        </a>{" "}
-                      </div>
+        <div className="logged-in-wrapper flex-center">
+          <div className="dashboard-home flex-row">
+            <div className="recent-games">
+              <h3 className="flex-center mar-btm-sm">Recent Games</h3>
+              {games?.map((game, index) => {
+                return (
+                  <div className="game-card flex-column" key={index}>
+                    <img src={game.image} className="game-img" />
+                    <p>{game.title}</p>
+                    <div className="flex-row">
+                      <a href={`/gameshow/${game.id}`}>See Reviews</a>
+                      {logged_in && (
+                        <a href={`/createprotected/${game.id}`}>Add Review</a>
+                      )}
                     </div>
-                  )
-                })}
+                  </div>
+                )
+              })}
+            </div>
+            <div className="welcome-column flex-column">
+              <div className="user-welcome mar-btm-md">
+                <h2>Welcome Back, {current_user.username}!</h2>
+              </div>
+              <div className="recent-reviews flex-column">
+                <h3 className="mar-btm-sm">Your Recent Reviews:</h3>
+                {reviews
+                  ?.filter((review) => review.user_id === current_user.id)
+                  .map((review, index) => {
+                    const handleClick = () => {
+                      const response = confirm(
+                        "Are you sure you want to delete this review as this cannot be undone."
+                      )
+                      if (response) {
+                        deleteReview(review.id)
+                      } else if (!response) {
+                      }
+                    }
+
+                    return (
+                      <div className="review-card" key={index}>
+                        <div className="flex-row">
+                          <div>
+                            {" "}
+                            <p>{current_user.username}</p>{" "}
+                            <p>{review.difficulty}</p>{" "}
+                            <p>{review.accessibility}</p>{" "}
+                          </div>
+                          <div>
+                            {" "}
+                            <p>{review.rating}</p>{" "}
+                          </div>
+                        </div>
+                        <div>
+                          {" "}
+                          <p>{review.review_text}</p>{" "}
+                        </div>
+                        <div className="mar-btm-sm">
+                          {" "}
+                          <a href={`/editprotected/${review.id}`}>
+                            {" "}
+                            Edit Review{" "}
+                          </a>{" "}
+                          <a href={"#"} onClick={handleClick}>
+                            {" "}
+                            Delete Review{" "}
+                          </a>{" "}
+                        </div>
+                      </div>
+                    )
+                  })}
+                <a href="/reviewprotectedindex">Your Reviews</a>
+              </div>
             </div>
           </div>
         </div>
