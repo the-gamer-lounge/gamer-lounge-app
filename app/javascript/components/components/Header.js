@@ -11,6 +11,9 @@ import Avatar from "@mui/material/Avatar"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"
+import SearchIcon from "@mui/icons-material/Search"
+import { styled, alpha } from "@mui/material/styles"
+import InputBase from "@mui/material/InputBase"
 
 const Header = ({
   logged_in,
@@ -20,6 +23,48 @@ const Header = ({
 }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
+
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(1),
+      width: "auto",
+    },
+  }))
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }))
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        width: "12ch",
+        "&:focus": {
+          width: "20ch",
+        },
+      },
+    },
+  }))
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -37,7 +82,7 @@ const Header = ({
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "#020307" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* This is the DESKTOP view. It will not show on mobile views. */}
@@ -94,10 +139,23 @@ const Header = ({
               <a href="/">Home</a>
               {logged_in && <a href="/reviewprotectedindex">My Reviews</a>}
               {logged_in && <a href={sign_out_route}>Log Out</a>}
-              {!logged_in && <a href={new_user_route}>Sign Up</a>}
-              {!logged_in && <a href={sign_in_route}>Sign In</a>}
             </div>
           </Box>
+          <Box sx={{ marginRight: "2.4rem" }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Box>
+          <div className="flex-row">
+            {!logged_in && <a href={sign_in_route}>Sign In</a>}
+            {!logged_in && <a href={new_user_route}>Sign Up</a>}
+          </div>
           {logged_in && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">

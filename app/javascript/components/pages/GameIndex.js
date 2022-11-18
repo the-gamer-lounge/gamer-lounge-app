@@ -9,7 +9,7 @@ const GameIndex = ({ logged_in, games }) => {
           return (
             <Grid item key={index}>
               <div className="game-card">
-                <img src={game.image} width="500px" />
+                <img src={game.image} className="game-img" />
                 <p>{game.title}</p>
                 <div className="flex-row">
                   <a href={`/gameshow/${game.id}`}>See Reviews</a>
