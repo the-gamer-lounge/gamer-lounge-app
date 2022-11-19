@@ -1,24 +1,29 @@
-# README
+# The Gamer Lounge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+"By Gamers For Gamers, Reviews You Can Trust”
 
-Things you may want to cover:
+## **`Overview`**
 
-* Ruby version
+The Gamer Lounge was created in an effort to give gamers truthful reviews with raw and genuine thoughts by gamers.
 
-* System dependencies
+## **`Features`**
 
-* Configuration
+- All games are searchable through the search input
+- Write a review, edit a review, delete a review
 
-* Database creation
+## **`Tech Used/Extensions/Dependencies`**
 
-* Database initialization
+- This is a React in Rails App utilizing Material UI (MUI).
 
-* How to run the test suite
+- Extensions Used
 
-* Services (job queues, cache servers, search engines, etc.)
+  - ESlint
+  - endwise
+  - Prettier
+  - Color Highlight
+    <br>
+    <br>
 
-* Deployment instructions
-
-* ...
+- Dependencies Used
+  - Material UI: React library of customizable components.
+  - Yarn: (Yet Another Resource Negotiator)Javascript package manager which let you store dependencies locally.
