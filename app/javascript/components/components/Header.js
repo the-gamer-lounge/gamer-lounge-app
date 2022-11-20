@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -11,60 +12,20 @@ import Avatar from "@mui/material/Avatar"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"
-import SearchIcon from "@mui/icons-material/Search"
-import { styled, alpha } from "@mui/material/styles"
-import InputBase from "@mui/material/InputBase"
+import SearchBar from "../components/SearchBar"
 
 const Header = ({
   logged_in,
   sign_out_route,
   new_user_route,
   sign_in_route,
+  games,
+  foundGames,
+  handleSearch,
+  searchTerm,
 }) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
-
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }))
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }))
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
-      },
-    },
-  }))
+  const [anchorElNav, setAnchorElNav] = useState(null)
+  const [anchorElUser, setAnchorElUser] = useState(null)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -82,7 +43,11 @@ const Header = ({
   }
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "#020307" }}>
+    <AppBar
+      position="fixed"
+      sx={{ bgcolor: "#020307" }}
+      className="mui-app-bar"
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* This is the DESKTOP view. It will not show on mobile views. */}
@@ -142,15 +107,12 @@ const Header = ({
             </div>
           </Box>
           <Box sx={{ marginRight: "2.4rem" }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
+            <SearchBar
+              games={games}
+              foundGames={foundGames}
+              handleSearch={handleSearch}
+              searchTerm={searchTerm}
+            />
           </Box>
           <div className="flex-row">
             {!logged_in && <a href={sign_in_route}>Sign In</a>}

@@ -1,5 +1,6 @@
 import React from "react"
 import Grid from "@mui/material/Grid"
+import GameCard from "../components/GameCard"
 
 const GameIndex = ({ logged_in, games }) => {
   return (
@@ -8,16 +9,7 @@ const GameIndex = ({ logged_in, games }) => {
         {games?.map((game, index) => {
           return (
             <Grid item key={index}>
-              <div className="game-card">
-                <img src={game.image} className="game-img" />
-                <p>{game.title}</p>
-                <div className="flex-row">
-                  <a href={`/gameshow/${game.id}`}>See Reviews</a>
-                  {logged_in && (
-                    <a href={`/createprotected/${game.id}`}>Add Review</a>
-                  )}
-                </div>
-              </div>
+              <GameCard game={game} logged_in={logged_in} />
             </Grid>
           )
         })}

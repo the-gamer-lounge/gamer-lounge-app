@@ -10,86 +10,91 @@ import EditProtected from "./pages/EditProtected"
 import CreateProtected from "./pages/CreateProtected"
 import NotFound from "./pages/NotFound"
 import Footer from "./components/Footer"
-import mockGames from "./mockGames"
-import mockReviews from "./mockReviews"
 
 const App = (props) => {
   const [games, setGames] = useState([])
   const [reviews, setReviews] = useState([])
+  const [foundGames, setFoundGames] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
 
+  useEffect(() => {
+    readGame()
+  }, [])
 
-useEffect(() => {
-  readGame()
-}, [])
+  useEffect(() => {
+    readReview()
+  }, [])
 
-useEffect(() => {
-  readReview()
-}, [])
-
-
-
-const readGame = () => {
-  fetch("http://localhost:3000/games")
-  .then((response) => response.json())
-  .then((payload) => {
-    setGames(payload)
-  })
-  .catch((error) => console.log(error)) 
-}
-
-const readReview = () => {
-  fetch("http://localhost:3000/reviews")
-  .then((response) => response.json())
-  .then((payload) => {
-    setReviews(payload)
-  })
-  .catch((error) => console.log(error))
-}
-
-const createReview = (review) => {
-  fetch("/reviews", {
-    body: JSON.stringify(review),
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "POST"
-  })
-  .then((response) => response.json())
-  .then((payload) => readReview())
-  .catch((errors) => console.log(errors))
-}
-
-
-const updateReview = (review, id) => {
-  fetch(`http://localhost:3000/reviews/${id}`, {
-    body: JSON.stringify(review),
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "PATCH"
-  })
-  .then((response) => response.json())
-  .then(() => readReview())
-  .catch((errors) => console.log("Review Create Errors:", errors))
+  const readGame = () => {
+    fetch("http://localhost:3000/games")
+      .then((response) => response.json())
+      .then((payload) => {
+        setGames(payload)
+      })
+      .catch((error) => console.log(error))
   }
 
+  const readReview = () => {
+    fetch("http://localhost:3000/reviews")
+      .then((response) => response.json())
+      .then((payload) => {
+        setReviews(payload)
+      })
+      .catch((error) => console.log(error))
+  }
 
-const deleteReview = (id) => {
-  fetch(`/reviews/${id}`, {
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "DELETE"
-  })
-  .then((response) => response.json())
-  .then((payload) => readReview())
-  .catch((error) => console.log(error)) 
-}
+  const createReview = (review) => {
+    fetch("/reviews", {
+      body: JSON.stringify(review),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((payload) => readReview())
+      .catch((errors) => console.log(errors))
+  }
+
+  const updateReview = (review, id) => {
+    fetch(`http://localhost:3000/reviews/${id}`, {
+      body: JSON.stringify(review),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((response) => response.json())
+      .then(() => readReview())
+      .catch((errors) => console.log("Review Create Errors:", errors))
+  }
+
+  const deleteReview = (id) => {
+    fetch(`/reviews/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((payload) => readReview())
+      .catch((error) => console.log(error))
+  }
+
+  const handleSearch = (e) => {
+    console.log(e)
+  }
 
   return (
     <>
       <BrowserRouter>
-        <Header {...props} />
+        <Header
+          {...props}
+          games={games}
+          foundGames={foundGames}
+          handleSearch={handleSearch}
+          searchTerm={searchTerm}
+        />
         <Routes>
           <Route
             path="/"
@@ -98,7 +103,7 @@ const deleteReview = (id) => {
 
           <Route
             path="/gameindex"
-            element={<GameIndex games={games} {...props}  />}
+            element={<GameIndex games={games} {...props} />}
           />
           <Route
             path="/gameshow/:id"
@@ -106,17 +111,34 @@ const deleteReview = (id) => {
           />
           <Route
             path="/reviewprotectedindex"
-            element={<ReviewProtectedIndex reviews={reviews} {...props} deleteReview={deleteReview}/>}
+            element={
+              <ReviewProtectedIndex
+                reviews={reviews}
+                {...props}
+                deleteReview={deleteReview}
+              />
+            }
           />
           <Route
             path="/editprotected/:id"
             element={
-              <EditProtected reviews={reviews} games={games} updateReview={updateReview} {...props} />
+              <EditProtected
+                reviews={reviews}
+                games={games}
+                updateReview={updateReview}
+                {...props}
+              />
             }
           />
           <Route
             path="/createprotected/:id"
-            element={<CreateProtected {...props} games={games} createReview={createReview}/>}
+            element={
+              <CreateProtected
+                {...props}
+                games={games}
+                createReview={createReview}
+              />
+            }
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
