@@ -581,3 +581,17 @@ h2 {
 .about-text-middle {
   text-align: right;
 }
+
+/* ----------------------------------------------------- */
+/*-------------------- FOOTER SECTION --------------------*/
+/* --------------------------------------------------- */
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.footer-devise {
+  align-self: flex-start;
+}
