@@ -5,7 +5,7 @@ import { Box } from "@mui/system"
 
 const GameIndex = ({ logged_in, games }) => {
   return (
-    <div className="nav-top-mar">
+    <div className="nav-top-mar footer-bottom-wrapper">
       <Grid
         container
         justifyContent="center"

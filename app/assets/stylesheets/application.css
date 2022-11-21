@@ -133,6 +133,10 @@ a {
   margin-top: 6.4rem;
 }
 
+.footer-bottom-wrapper {
+  height: 85vh;
+}
+
 h1 {
   font-size: 9.6rem;
   font-weight: 700;
