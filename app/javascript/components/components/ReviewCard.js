@@ -39,10 +39,10 @@ const ReviewCard = ({ review, current_user, index, handleClick }) => {
         <p>{review.review_text}</p>
       </div>
       <div className="flex-row">
-        <a href={`/editprotected/${review.id}`} className="review-btn">
+        <a href={`/editprotected/${review.id}`} className="btn">
           Edit Review
         </a>
-        <a href="#" onClick={handleClick} className="review-btn">
+        <a href="#" onClick={handleClick} className="btn">
           Delete Review
         </a>
       </div>
