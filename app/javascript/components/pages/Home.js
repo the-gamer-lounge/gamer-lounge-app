@@ -33,18 +33,16 @@ const Home = ({
           <div className="dashboard-home flex-row">
             <div className="recent-games-column flex-column">
               <h3 className="flex-center">Recent Games:</h3>
-              <div className="mar-btm-sm">
-                {games?.slice(-2).map((game, index) => {
-                  return (
-                    <GameCard game={game} index={index} logged_in={logged_in} />
-                  )
-                })}
-              </div>
-              <div className="">
+              {games?.slice(-2).map((game, index) => {
+                return (
+                  <GameCard game={game} index={index} logged_in={logged_in} />
+                )
+              })}
+              {/* <div className="">
                 <a href={`/gameshow/${randomGame}`} className="shine-btn">
                   Random Game
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="welcome-column">
               <h2 className="flex-center mar-btm-lg">

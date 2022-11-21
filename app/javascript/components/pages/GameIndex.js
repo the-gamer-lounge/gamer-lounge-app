@@ -16,7 +16,7 @@ const GameIndex = ({ logged_in, games }) => {
   }
 
   return (
-    <div className="game-index-wrapper footer-bottom-wrapper">
+    <div className="game-index-wrapper mar-btm-md">
       <div className="filter-column">
         <GenreRadioButton genres={genres} handleSelect={handleSelect} />
       </div>
