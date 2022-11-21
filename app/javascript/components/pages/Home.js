@@ -41,7 +41,7 @@ const Home = ({
                 })}
               </div>
               <div className="">
-                <a href={`/gameshow/${randomGame}`} className="btn">
+                <a href={`/gameshow/${randomGame}`} className="shine-btn">
                   Random Game
                 </a>
               </div>
@@ -80,7 +80,7 @@ const Home = ({
                     })}
                 </div>
                 <div className="flex-row">
-                  <a href="/reviewprotectedindex" className="btn">
+                  <a href="/reviewprotectedindex" className="shine-btn">
                     Your Reviews
                   </a>
                 </div>
