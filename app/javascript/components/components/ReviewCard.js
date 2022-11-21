@@ -27,10 +27,10 @@ const ReviewCard = ({ review, current_user, index, handleClick }) => {
         </div>
         <div>
           <p className="review-difficulty">
-            Difficulty Rating:&nbsp;<span>{review.difficulty}/10</span>
+            Difficulty Rating:&nbsp;&nbsp;<span>{review.difficulty}/10</span>
           </p>
           <p className="review-accessibility">
-            Additional Accessibility Options:&nbsp;
+            Additional Accessibility Options:&nbsp;&nbsp;
             <span>{review.accessibility}</span>
           </p>
         </div>

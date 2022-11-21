@@ -11,9 +11,20 @@ const ReviewProtectedIndex = ({
 }) => {
   if (logged_in) {
     return (
-      <>
-        <h1>Reviews</h1>
-        <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <div className="nav-top-mar footer-bottom-wrapper">
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          rowSpacing={3}
+          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto",
+          }}
+        >
           {reviews
             ?.filter((review) => review.user_id === current_user.id)
             .map((review, index) => {
@@ -37,7 +48,7 @@ const ReviewProtectedIndex = ({
               )
             })}
         </Grid>
-      </>
+      </div>
     )
   } else if (!logged_in) {
     return <h1>You are not logged in.</h1>
