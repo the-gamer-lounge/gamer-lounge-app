@@ -20,6 +20,7 @@ const GameIndex = ({ logged_in, games }) => {
       <div className="filter-column">
         <GenreRadioButton genres={genres} handleSelect={handleSelect} />
       </div>
+      <h2 className="flex-center">Games</h2>
       <Grid
         container
         justifyContent="center"
