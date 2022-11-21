@@ -13,6 +13,8 @@ import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"
 import SearchBar from "../components/SearchBar"
+import HomeIcon from "@mui/icons-material/Home"
+import ChatIcon from "@mui/icons-material/Chat"
 
 const Header = ({
   logged_in,
@@ -51,10 +53,6 @@ const Header = ({
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* This is the DESKTOP view. It will not show on mobile views. */}
-          {/* This is our icon. */}
-          <SportsEsportsIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-          />
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -87,9 +85,26 @@ const Header = ({
               <MenuItem onClick={handleCloseNavMenu}>
                 {/* This is the MOBILE menu. It is not shown on desktop views. */}
                 <div className="flex-column">
-                  <a href="/gameindex">Games</a>
-                  <a href="/">Home</a>
-                  {logged_in && <a href="/reviewprotectedindex">My Reviews</a>}
+                  <a href="/">
+                    <span className="flex-center">
+                      <HomeIcon />
+                      &nbsp;Home
+                    </span>
+                  </a>
+                  <a href="/gameindex">
+                    <span className="flex-center">
+                      <SportsEsportsIcon />
+                      &nbsp;Games
+                    </span>
+                  </a>
+                  {logged_in && (
+                    <a href="/reviewprotectedindex">
+                      <span className="flex-center">
+                        <ChatIcon />
+                        &nbsp;My Reviews
+                      </span>
+                    </a>
+                  )}
                   {logged_in && <a href={sign_out_route}>Log Out</a>}
                   {!logged_in && <a href={new_user_route}>Sign Up</a>}
                   {!logged_in && <a href={sign_in_route}>Sign In</a>}
@@ -100,9 +115,26 @@ const Header = ({
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* This is the DESKTOP menu. It is not shown on mobile views. */}
             <div className="flex-row">
-              <a href="/gameindex">Games</a>
-              <a href="/">Home</a>
-              {logged_in && <a href="/reviewprotectedindex">My Reviews</a>}
+              <a href="/">
+                <span className="flex-center">
+                  <HomeIcon />
+                  &nbsp;Home
+                </span>
+              </a>
+              <a href="/gameindex">
+                <span className="flex-center">
+                  <SportsEsportsIcon />
+                  &nbsp;Games
+                </span>
+              </a>
+              {logged_in && (
+                <a href="/reviewprotectedindex">
+                  <span className="flex-center">
+                    <ChatIcon />
+                    &nbsp;My Reviews
+                  </span>
+                </a>
+              )}
               {logged_in && <a href={sign_out_route}>Log Out</a>}
             </div>
           </Box>
