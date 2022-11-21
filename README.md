@@ -9,6 +9,7 @@ The Gamer Lounge was created in an effort to give gamers truthful reviews with r
 ## **`Features`**
 
 - All games are searchable through the search input
+- Users can filter through the games to select the genre they desire
 - Write a review, edit a review, delete a review
 
 ## **`Tech Used/Extensions/Dependencies`**
