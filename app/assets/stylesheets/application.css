@@ -67,7 +67,7 @@ body {
   box-sizing: border-box;
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
-  background-color: #010101;
+  background-color: #0e1118;
   color: #fff;
 }
 
@@ -128,6 +128,7 @@ a {
   margin-bottom: 1.8rem;
 }
 
+/* This adds margin to the top that's the height of the navbar, so that the content doesn't get hidden behind it. This is currently necessary because it's position is set to fixed, if we adjust that, this class can be deleted. */
 .nav-top-mar {
   margin-top: 6.4rem;
 }
@@ -289,9 +290,9 @@ h2 {
   gap: 1.6rem;
   border-radius: 5px;
   padding: 1.2rem 1.8rem;
-  height: 40rem;
-  max-width: 70rem;
-  background-color: #0b0b0b;
+  min-height: 30rem;
+  max-width: 55rem;
+  background-color: #161b21;
 }
 
 .top-review {
@@ -307,34 +308,36 @@ h2 {
 
 .review-difficulty {
   font-size: 1.4rem;
+  font-weight: 200;
 }
 
 .review-difficulty span {
-  /* font-size: 1.2rem; */
-  font-weight: 200;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .review-accessibility {
   font-size: 1.4rem;
+  font-weight: 200;
 }
 
 .review-accessibility span {
-  /* font-size: 1.2rem; */
-  font-weight: 200;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .bottom-review {
   flex-grow: 1;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 200;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
 }
 
 .review-btn {
-  padding: 1.2rem 1.4rem;
+  padding: 0.8rem 1.2rem;
   background-color: #dd00f3;
   border-radius: 5px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 400;
 }
 
