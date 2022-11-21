@@ -12,6 +12,7 @@ const ReviewProtectedIndex = ({
   if (logged_in) {
     return (
       <div className="nav-top-mar footer-bottom-wrapper">
+        <h2 className="flex-center">Reviews</h2>
         <Grid
           container
           justifyContent="center"
