@@ -1,11 +1,25 @@
-import React from "react"
 import Grid from "@mui/material/Grid"
 import GameCard from "../components/GameCard"
-import { Box } from "@mui/system"
+import GenreRadioButton from "../components/GenreRadioButton"
+import React, { useState, useEffect } from "react"
 
 const GameIndex = ({ logged_in, games }) => {
+  const [genres, setGenres] = useState([])
+  const [selectedGenre, setSelectedGenre] = useState("All")
+  useEffect(() => {
+    const genres = games?.map((game) => game.genre)
+    setGenres(["All", ...genres])
+  }, [games])
+
+  const handleSelect = (e) => {
+    setSelectedGenre(e.target.value)
+  }
+
   return (
-    <div className="nav-top-mar footer-bottom-wrapper">
+    <div className="game-index-wrapper footer-bottom-wrapper">
+      <div className="filter-column">
+        <GenreRadioButton genres={genres} handleSelect={handleSelect} />
+      </div>
       <Grid
         container
         justifyContent="center"
@@ -19,13 +33,23 @@ const GameIndex = ({ logged_in, games }) => {
           margin: "0 auto",
         }}
       >
-        {games?.map((game, index) => {
-          return (
-            <Grid item key={index}>
-              <GameCard game={game} logged_in={logged_in} />
-            </Grid>
-          )
-        })}
+        {games
+          ?.filter((game) => {
+            if (
+              game.genre === selectedGenre ||
+              !selectedGenre.length ||
+              selectedGenre === "All"
+            ) {
+              return true
+            }
+          })
+          .map((game, index) => {
+            return (
+              <Grid item key={index}>
+                <GameCard game={game} logged_in={logged_in} />
+              </Grid>
+            )
+          })}
       </Grid>
     </div>
   )

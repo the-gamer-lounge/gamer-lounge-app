@@ -36,17 +36,18 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
   return (
     <>
       {editReview && (
-        <div className="form-wrapper nav-top-mar">
-          <div className="flex-row">
-            <a href="/reviewprotectedindex" className="back-btn">
+        <div className="form-wrapper footer-bottom-wrapper">
+          <div className="review-form">
+            <a href="/reviewprotectedindex" className="back-btn btn">
               Back to Reviews
             </a>
-            <p>Review For: {currentGame?.title}</p>
-          </div>
-          <form>
-            <div className="flex-row">
+            <div className="flex-column mar-btm-md">
+              <h4 className="review-for">Review For:</h4>
+              <h3 className="review-title">{currentGame?.title}</h3>
+            </div>
+            <div className="flex-row mar-btm-sm">
               {/* Input for Accessibility */}
-              <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <FormControl sx={{ m: 1, minWidth: 120, fontSize: "1.6rem" }}>
                 <InputLabel id="accessibility-label">Accessibility*</InputLabel>
                 <Select
                   id="accessibility"
@@ -56,6 +57,11 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   onChange={handleChange}
                   className="form-input"
                   required
+                  sx={{
+                    backgroundColor: "#2d3237",
+                    color: "#fff",
+                    fontSize: "1.4rem",
+                  }}
                 >
                   <MenuItem value="Yes">Yes</MenuItem>
                   <MenuItem value="No">No</MenuItem>
@@ -76,13 +82,18 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  sx={{
+                    backgroundColor: "#2d3237",
+                    color: "#fff",
+                    fontSize: "1.4rem",
+                  }}
                 />
                 <FormHelperText>
                   Please enter a number or decimal between 1-5.
                 </FormHelperText>
               </FormControl>
             </div>
-            <div className="flex-row">
+            <div className="flex-row mar-btm-sm">
               {/* Input for Difficulty */}
               <FormControl>
                 <TextField
@@ -94,13 +105,18 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  sx={{
+                    backgroundColor: "#2d3237",
+                    color: "#fff",
+                    fontSize: "1.4rem",
+                  }}
                 />
                 <FormHelperText>
                   Please enter a number or decimal between 1-10.
                 </FormHelperText>
               </FormControl>
             </div>
-            <div className="flex-row">
+            <div className="flex-row mar-btm-sm">
               {/* Input for Review */}
               <FormControl>
                 <TextField
@@ -113,6 +129,11 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   multiline
                   fullWidth
                   required
+                  sx={{
+                    backgroundColor: "#2d3237",
+                    color: "#fff",
+                    fontSize: "1.4rem",
+                  }}
                 />
                 <FormHelperText>
                   If you answered "Yes" to accessibility options, please include
@@ -121,9 +142,11 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
               </FormControl>
             </div>
             <div className="flex-row">
-              <button onClick={handleSubmit}>Submit</button>
+              <a onClick={handleSubmit} className="btn">
+                Submit
+              </a>
             </div>
-          </form>
+          </div>
         </div>
       )}
     </>
