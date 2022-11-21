@@ -81,10 +81,6 @@ const App = (props) => {
       .catch((error) => console.log(error))
   }
 
-  const handleSearch = (e) => {
-    console.log(e)
-  }
-
   return (
     <>
       <BrowserRouter>
@@ -92,7 +88,6 @@ const App = (props) => {
           {...props}
           games={games}
           foundGames={foundGames}
-          handleSearch={handleSearch}
           searchTerm={searchTerm}
         />
         <Routes>

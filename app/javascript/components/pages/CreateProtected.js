@@ -40,91 +40,102 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
   return (
     <>
       <>
-        <div className="form-wrapper nav-top-mar">
-          <div className="flex-row">
-            <a href="/gameindex" className="back-btn">
+        <div className="form-wrapper footer-bottom-wrapper">
+          <div className="review-form">
+            <a href="/gameindex" className="back-btn btn">
               Back to Games
             </a>
-            <p>Review For: {currentGame?.title}</p>
-          </div>
-          <div className="flex-row">
-            {/* Input for Accessibility */}
-            <FormControl sx={{ m: 1, minWidth: 120, fontSize: "1.6rem" }}>
-              <InputLabel id="accessibility-label" sx={{ fontSize: "1.6rem" }}>
-                Accessibility*
-              </InputLabel>
-              <Select
-                id="accessibility"
-                labelId="accessibility-label"
-                value={newReview.accessibility}
-                name="accessibility"
-                onChange={handleChange}
-                className="form-input"
-                required
-              >
-                <MenuItem value="Yes">Yes</MenuItem>
-                <MenuItem value="No">No</MenuItem>
-              </Select>
-              <FormHelperText>
-                Does the game have additional accessibility options?
-              </FormHelperText>
-            </FormControl>
-            {/* Input for Overall Rating */}
-            <FormControl>
-              <TextField
-                id="outlined-basic"
-                label="Overall Rating"
-                variant="outlined"
-                name="rating"
-                onChange={handleChange}
-                className="form-input"
-                required
-                type="number"
-              />
-              <FormHelperText>
-                Please enter a number or decimal between 1-5.
-              </FormHelperText>
-            </FormControl>
-          </div>
-          <div className="flex-row">
-            {/* Input for Difficulty */}
-            <FormControl>
-              <TextField
-                label="Difficulty"
-                variant="outlined"
-                name="difficulty"
-                onChange={handleChange}
-                className="form-input"
-                required
-                type="number"
-              />
-              <FormHelperText>
-                Please enter a number or decimal between 1-10.
-              </FormHelperText>
-            </FormControl>
-          </div>
-          <div className="flex-row">
-            {/* Input for Review */}
-            <FormControl>
-              <TextField
-                label="Review"
-                variant="outlined"
-                name="review_text"
-                onChange={handleChange}
-                className="form-input"
-                multiline
-                fullWidth
-                required
-                type="text"
-              />
-              <FormHelperText>
-                If you answered "Yes" to accessibility options, please include
-                them in your review.
-              </FormHelperText>
-            </FormControl>
-          </div>
-          <div className="flex-row">
-            <button onClick={handleSubmit}>Submit</button>
+            <div className="flex-column mar-btm-md">
+              <h4 className="review-for">Review For:</h4>
+              <h3 className="review-title">{currentGame?.title}</h3>
+            </div>
+            <div className="flex-row mar-btm-sm">
+              {/* Input for Accessibility */}
+              <FormControl sx={{ m: 1, minWidth: 120, fontSize: "1.6rem" }}>
+                <InputLabel id="accessibility-label">Accessibility*</InputLabel>
+                <Select
+                  id="accessibility"
+                  labelId="accessibility-label"
+                  value={newReview.accessibility}
+                  name="accessibility"
+                  onChange={handleChange}
+                  className="form-input"
+                  required
+                  sx={{
+                    backgroundColor: "#2d3237",
+                    color: "#fff",
+                    fontSize: "1.4rem",
+                  }}
+                >
+                  <MenuItem value="Yes">Yes</MenuItem>
+                  <MenuItem value="No">No</MenuItem>
+                </Select>
+                <FormHelperText>
+                  Does the game have additional accessibility options?
+                </FormHelperText>
+              </FormControl>
+              {/* Input for Overall Rating */}
+              <FormControl>
+                <TextField
+                  id="outlined-basic"
+                  label="Overall Rating"
+                  variant="outlined"
+                  name="rating"
+                  onChange={handleChange}
+                  className="form-input"
+                  required
+                  type="number"
+                  sx={{ backgroundColor: "#2d3237" }}
+                />
+                <FormHelperText>
+                  Please enter a number or decimal between 1-5.
+                </FormHelperText>
+              </FormControl>
+            </div>
+            <div className="flex-row mar-btm-sm">
+              {/* Input for Difficulty */}
+              <FormControl>
+                <TextField
+                  label="Difficulty"
+                  variant="outlined"
+                  name="difficulty"
+                  onChange={handleChange}
+                  className="form-input"
+                  required
+                  type="number"
+                  sx={{ backgroundColor: "#2d3237" }}
+                />
+                <FormHelperText>
+                  Please enter a number or decimal between 1-10.
+                </FormHelperText>
+              </FormControl>
+            </div>
+            <div className="flex-row mar-btm-sm">
+              {/* Input for Review */}
+              <FormControl>
+                <TextField
+                  label="Review"
+                  variant="outlined"
+                  name="review_text"
+                  onChange={handleChange}
+                  className="form-input"
+                  multiline
+                  fullWidth
+                  required
+                  type="text"
+                  sx={{ backgroundColor: "#2d3237" }}
+                />
+                <FormHelperText>
+                  If you answered "Yes" to accessibility options, please include
+                  them in your review.
+                </FormHelperText>
+              </FormControl>
+            </div>
+            <div className="flex-row">
+              <a onClick={handleSubmit} className="btn">
+                Submit
+              </a>
+            </div>
           </div>
         </div>
       </>

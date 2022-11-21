@@ -1,15 +1,15 @@
-import React from "react";
-import { render } from "react-dom";
-import { useParams } from "react-router-dom";
-import { Grid } from "@mui/material";
+import React from "react"
+import { render } from "react-dom"
+import { useParams } from "react-router-dom"
+import { Grid } from "@mui/material"
 
 const GameShow = ({ games, reviews, current_user }) => {
-  const { id } = useParams();
-  const showGame = games?.find((game) => game.id === +id);
+  const { id } = useParams()
+  const showGame = games?.find((game) => game.id === +id)
   return (
     <>
       {showGame && (
-        <>
+        <div className="show-game-wrapper footer-bottom-wrapper">
           <div className="game-card">
             <img src={showGame.image} width="500px" />
             <div className="game-info-1">
@@ -65,13 +65,13 @@ const GameShow = ({ games, reviews, current_user }) => {
                       </div>
                     </div>
                   </Grid>
-                );
+                )
               })}
           </Grid>
-        </>
+        </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default GameShow;
+export default GameShow
