@@ -38,16 +38,11 @@ const Home = ({
                   <GameCard game={game} index={index} logged_in={logged_in} />
                 )
               })}
-              {/* <div className="">
-                <a href={`/gameshow/${randomGame}`} className="shine-btn">
-                  Random Game
-                </a>
-              </div> */}
             </div>
             <div className="welcome-column">
-              <h2 className="flex-center mar-btm-lg">
+              <h4 className="flex-center mar-btm-md welcome-header">
                 Welcome Back, {current_user.username}!
-              </h2>
+              </h4>
 
               <div className="recent-reviews">
                 <h3 className="flex-center mar-btm-sm">Your Last Review:</h3>
@@ -99,7 +94,7 @@ const Home = ({
                 <a href="#how-section" className="home-btn">
                   Learn More
                 </a>
-                <a href="" className="home-btn">
+                <a href={new_user_route} className="home-btn">
                   Sign Up
                 </a>
               </div>

@@ -6,7 +6,6 @@ import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
 
 export default function GenreRadioButton({ genres, handleSelect }) {
-  console.log(genres)
   return (
     <div className="game-filter-wrapper">
       <FormControl>

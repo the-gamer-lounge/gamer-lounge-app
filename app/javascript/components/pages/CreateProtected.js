@@ -25,6 +25,16 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
     review_text: "",
     rating: 0,
   })
+  const [count, setCount] = useState(0)
+
+  const twoCalls = (e) => {
+    charCount(e)
+    handleChange(e)
+  }
+
+  const charCount = (e) => {
+    setCount(e.target.value.length)
+  }
 
   const handleChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value })
@@ -85,6 +95,7 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  InputProps={{ inputProps: { min: 0, max: 5 } }}
                   sx={{ backgroundColor: "#2d3237" }}
                 />
                 <FormHelperText>
@@ -103,6 +114,7 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  InputProps={{ inputProps: { min: 0, max: 10 } }}
                   sx={{ backgroundColor: "#2d3237" }}
                 />
                 <FormHelperText>
@@ -117,18 +129,20 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
                   label="Review"
                   variant="outlined"
                   name="review_text"
-                  onChange={handleChange}
+                  onChange={twoCalls}
                   className="form-input"
                   multiline
                   fullWidth
                   required
                   type="text"
                   sx={{ backgroundColor: "#2d3237" }}
+                  inputProps={{ maxLength: 1500 }}
                 />
                 <FormHelperText>
                   If you answered "Yes" to accessibility options, please include
                   them in your review.
                 </FormHelperText>
+                <p className="flex-center">{count}/1500</p>
               </FormControl>
             </div>
             <div className="flex-row">

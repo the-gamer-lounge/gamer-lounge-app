@@ -285,10 +285,6 @@ h2 {
   margin-top: 6.4rem;
 }
 
-/* ------------------------------------------------------------- */
-/* ------------------------ GAME SHOW ------------------------  */
-/* ----------------------------------------------------------- */
-
 .game-card {
   display: flex;
   flex-direction: column;
@@ -299,12 +295,59 @@ h2 {
 .game-img {
   width: 30rem;
   height: 25rem;
-  object-fit: fill;
+  overflow: hidden;
 }
 
 .game-img img {
   width: 100%;
-  height: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------- */
+/* ------------------------ GAME SHOW ------------------------  */
+/* ----------------------------------------------------------- */
+
+.show-game-wrapper h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.game-show-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  height: 40vh;
+}
+
+.game-show-card p {
+  text-shadow: 1px 1px #020307;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.game-title-desc {
+  height: 40vh;
+  flex-grow: 1;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title-desc-box {
+  gap: 2.4rem;
+}
+
+.game-info-all {
+  flex-grow: 1;
+  gap: 1.2rem;
+}
+
+.desc-width {
+  width: 50rem;
 }
 
 /* -------------------------------------------------------------------- */
@@ -318,7 +361,7 @@ h2 {
   gap: 1.6rem;
   border-radius: 5px;
   padding: 1.2rem 1.8rem;
-  min-height: 30rem;
+  height: 50rem;
   max-width: 55rem;
   background-color: #161b21;
 }
@@ -439,10 +482,16 @@ h2 {
 }
 
 .welcome-column {
-  background-color: rgba(2, 3, 7, 0.94);
+  /* background-color: rgba(2, 3, 7, 0.94); */
   padding: 2.4rem 3.2rem;
   border-radius: 5px;
   height: 75rem;
+}
+
+.welcome-header {
+  font-size: 4.4rem;
+  color: #fff;
+  font-weight: 400;
 }
 
 .dashboard-home h3 {
