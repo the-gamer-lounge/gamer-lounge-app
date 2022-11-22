@@ -770,10 +770,6 @@ margin-top: 2rem;
   margin-top: 15rem;
 }
 
-.signup-h2 {
-  display: flex;
-}
-
 .signup-text {
   display: flex;
 }
@@ -781,10 +777,9 @@ margin-top: 2rem;
 .signup-actions {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
   flex-direction: column;
   align-items: center;
-  
+  margin-top: 1rem;
 }
 
 /* ----------------------------------------------------- */
