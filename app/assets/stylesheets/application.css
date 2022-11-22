@@ -167,8 +167,8 @@ h2 {
 }
 
 .shine-btn {
-  margin: 10px;
-  padding: 1.4rem 2.4rem;
+  padding: 1.4rem 1.8rem;
+  font-size: 1.4rem;
   transition: 0.5s;
   background-size: 200% auto;
   border-radius: 5px;
@@ -184,7 +184,7 @@ h2 {
 }
 
 .shine-btn:hover {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background-position: right center;
   /* change the direction of the shift here */
 }
@@ -297,7 +297,14 @@ h2 {
 }
 
 .game-img {
-  width: 40rem;
+  width: 30rem;
+  height: 25rem;
+  object-fit: fill;
+}
+
+.game-img img {
+  width: 100%;
+  height: 100%;
 }
 
 /* -------------------------------------------------------------------- */
@@ -365,7 +372,6 @@ h2 {
 /* ----------------------------------------------------------------- */
 /* ------------------------ CREATE REVIEW ------------------------  */
 /* --------------------------------------------------------------- */
-
 
 .form-wrapper {
   display: flex;
@@ -641,18 +647,21 @@ h2 {
 }
 
 /* ----------------------------------------------------- */
-/*-------------------- FOOTER SECTION --------------------*/
+/*----------------------- FOOTER -----------------------*/
 /* --------------------------------------------------- */
 
 .footer-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  padding: 0rem 1.2rem;
+  background-color: #020307;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-devise {
   align-self: flex-start;
 }
+
 
 /* ----------------------------------------------------- */
 /*-------------------- LOGIN SECTION --------------------*/
@@ -694,3 +703,22 @@ flex-direction: column;
 align-items: center;
 margin-top: 2rem;
 }
+
+.footer-container a:hover {
+  cursor: pointer;
+  background: -webkit-linear-gradient(50deg, #b100ca, #05d2ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ----------------------------------------------------- */
+/*----------------------- HEADER -----------------------*/
+/* --------------------------------------------------- */
+
+.mui-app-bar a:hover {
+  cursor: pointer;
+  background: -webkit-linear-gradient(50deg, #b100ca, #05d2ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

@@ -33,18 +33,16 @@ const Home = ({
           <div className="dashboard-home flex-row">
             <div className="recent-games-column flex-column">
               <h3 className="flex-center">Recent Games:</h3>
-              <div className="mar-btm-sm">
-                {games?.slice(-2).map((game, index) => {
-                  return (
-                    <GameCard game={game} index={index} logged_in={logged_in} />
-                  )
-                })}
-              </div>
-              <div className="">
+              {games?.slice(-2).map((game, index) => {
+                return (
+                  <GameCard game={game} index={index} logged_in={logged_in} />
+                )
+              })}
+              {/* <div className="">
                 <a href={`/gameshow/${randomGame}`} className="shine-btn">
                   Random Game
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="welcome-column">
               <h2 className="flex-center mar-btm-lg">
@@ -120,7 +118,11 @@ const Home = ({
                 </div>
                 <div className="how-text">
                   <p>
+
                     Create an account using your email and a password. Add a username so our community knows who you are! 
+
+                    Here at The Gamer Lounge, we give the power back to gamers like you! Create an account, search through our library and share your thoughts with others! 
+
                   </p>
                 </div>
               </div>
@@ -130,11 +132,7 @@ const Home = ({
                 </div>
                 <div className="how-text">
                   <p>
-                    orem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
+                    Search our game library to find your favorite games and see why other people enjoy it, See your most recently viewed games and reviews to hot-drop right back into the action.
                   </p>
                 </div>
               </div>
@@ -144,11 +142,7 @@ const Home = ({
                 </div>
                 <div className="how-text">
                   <p>
-                    orem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
+                    We want to hear your thoughts! Tell us why you love your favorite game, or why you wouldn't wish it on your worst enemy. Quit wasting time and start #lounging today!
                   </p>
                 </div>
               </div>
