@@ -43,5 +43,8 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ]
+  },
+  "engines": {
+    "node": "16.18.1"
   }
 }
