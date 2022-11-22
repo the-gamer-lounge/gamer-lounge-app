@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Rating from "@mui/material/Rating"
 import { Avatar } from "@mui/material"
 
 const ReviewCard = ({ review, current_user, index, handleClick }) => {
+
   return (
     <div className="review-card" key={index}>
       <div className="top-review">
@@ -14,7 +15,7 @@ const ReviewCard = ({ review, current_user, index, handleClick }) => {
               className="user-img"
             /> */}
             <Avatar alt="Remy Sharp" src="" />
-            <p className="review-username">{current_user.username}</p>
+            <p className="review-username">{review.username}</p>
           </div>
           <div className="flex-center">
             <Rating

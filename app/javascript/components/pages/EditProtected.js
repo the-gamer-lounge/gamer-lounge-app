@@ -23,6 +23,17 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
     rating: "",
   })
 
+  const [count, setCount] = useState(0)
+
+  const twoCalls = (e) => {
+    charCount(e)
+    handleChange(e)
+  }
+
+  const charCount = (e) => {
+    setCount(e.target.value.length)
+  }
+
   const handleChange = (e) => {
     setEditReview({ ...editReview, [e.target.name]: e.target.value })
   }
@@ -82,6 +93,7 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  InputProps={{ inputProps: { min: 0, max: 5 } }}
                   sx={{
                     backgroundColor: "#2d3237",
                     color: "#fff",
@@ -105,6 +117,7 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   className="form-input"
                   required
                   type="number"
+                  InputProps={{ inputProps: { min: 0, max: 10 } }}
                   sx={{
                     backgroundColor: "#2d3237",
                     color: "#fff",
@@ -124,7 +137,7 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                   value={editReview.review_text}
                   variant="outlined"
                   name="review_text"
-                  onChange={handleChange}
+                  onChange={twoCalls}
                   className="form-input"
                   multiline
                   fullWidth
@@ -134,11 +147,13 @@ const EditProtected = ({ games, reviews, current_user, updateReview }) => {
                     color: "#fff",
                     fontSize: "1.4rem",
                   }}
+                  inputProps={{ maxLength: 1500 }}
                 />
                 <FormHelperText>
                   If you answered "Yes" to accessibility options, please include
                   them in your review.
                 </FormHelperText>
+                <p className="flex-center">{count}/1500</p>
               </FormControl>
             </div>
             <div className="flex-row">

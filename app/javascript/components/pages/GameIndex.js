@@ -8,7 +8,8 @@ const GameIndex = ({ logged_in, games }) => {
   const [selectedGenre, setSelectedGenre] = useState("All")
   useEffect(() => {
     const genres = games?.map((game) => game.genre)
-    setGenres(["All", ...genres])
+    const removeDupes = [...new Set(genres)]
+    setGenres(["All", ...removeDupes])
   }, [games])
 
   const handleSelect = (e) => {
@@ -17,10 +18,10 @@ const GameIndex = ({ logged_in, games }) => {
 
   return (
     <div className="game-index-wrapper mar-btm-md">
-      <div className="filter-column">
+      <div className="filter-column mar-btm-md">
         <GenreRadioButton genres={genres} handleSelect={handleSelect} />
       </div>
-      <h2 className="flex-center">Games</h2>
+      <h2 className="flex-center">All Games</h2>
       <Grid
         container
         justifyContent="center"
