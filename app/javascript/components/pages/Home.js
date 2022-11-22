@@ -118,7 +118,11 @@ const Home = ({
                 </div>
                 <div className="how-text">
                   <p>
+
+                    Create an account using your email and a password. Add a username so our community knows who you are! 
+
                     Here at The Gamer Lounge, we give the power back to gamers like you! Create an account, search through our library and share your thoughts with others! 
+
                   </p>
                 </div>
               </div>
