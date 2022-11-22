@@ -34,7 +34,7 @@ game2 = Game.create(
 )
 
 game3 = Game.create(
-  image: "https://upload.wikimedia.org/wikipedia/en/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg",
+  image: "https://cdn-ext.fanatical.com/production/product/1280x720/2db0a1c1-3719-4270-b610-a8a1f6c6efb1.jpeg",
   title: "Tom Clancy's Rainbow Six Siege",
   price: 19.99,
   genre: "First Person Shooter",
@@ -46,7 +46,7 @@ game3 = Game.create(
 )
 
 game4 = Game.create(
-  image: "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.0/c_scale,w_800/ncom/en_US/games/switch/s/splatoon-3-switch/hero",
+  image: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/s/splatoon-3-switch/hero",
   title: "Splatoon 3",
   price: 59.99,
   genre: "Third Person Shooter",
@@ -58,7 +58,7 @@ game4 = Game.create(
 )
 
 game5 = Game.create(
-  image: "https://upload.wikimedia.org/wikipedia/en/5/5e/Fall_Guys_cover.jpg",
+  image: "https://news.xbox.com/en-us/wp-content/uploads/sites/2/2021/02/Fall-Guys-Key-Art_Thumb_JPG.jpg",
   title: "Fall Guys: Ultimate Knockout",
   price: 0,
   genre: "Battle Royale",
@@ -70,7 +70,7 @@ game5 = Game.create(
 )
 
 game6 = Game.create(
-  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg?t=1668042166",
+  image: "https://preview.redd.it/ulg8t3ca9uy71.png?auto=webp&s=bbc5f27258cffe2f9274abdf5d03d43c547b823e",
   title: "Elden Ring",
   price: 39.99,
   genre: "Role Playing Game",
@@ -81,7 +81,7 @@ game6 = Game.create(
   developer: "FromSoftware"
 )
 game7 = Game.create(
-  image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+  image: "https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7",
   title: "Cyberpunk 2077",
   price: 59.99,
   genre: "Role Playing Game",
@@ -92,7 +92,7 @@ game7 = Game.create(
   developer: "CD Projekt Red"
 )
 game8 = Game.create(
-  image: "https://gpuskin.com/images/GAMEImages/682-valorant-cover.png",
+  image: "https://images.livemint.com/img/2020/06/03/1600x900/Valorant_1591218052835_1591218061187.jpg",
   title: "Valorant",
   price: 0,
   genre: "First Person Shooter",
@@ -104,7 +104,7 @@ game8 = Game.create(
 )
 
 game9 = Game.create(
-  image: "https://cdn.akamai.steamstatic.com/steam/apps/1693980/capsule_616x353.jpg?t=1668776273",
+  image: "https://i.ytimg.com/vi/q-t5eoh7yfg/maxresdefault.jpg",
   title: "Dead Space",
   price: 59.99,
   genre: "Third Person Shooter",
@@ -116,7 +116,7 @@ game9 = Game.create(
 )
 
 game10 = Game.create(
-  image: "https://m.media-amazon.com/images/I/51g8LljhiNL._AC_SY580_.jpg",
+  image: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/m/mario-kart-8-deluxe-switch/hero",
   title: "Mario Kart 8",
   price: 47.99,
   genre: "Racing",
@@ -128,7 +128,7 @@ game10 = Game.create(
 )
 
 game11 = Game.create(
-  image: "https://assets.2k.com/1a6ngf98576c/6ATYjOLFuAjwwCQmbFGHwz/fe66145cdf03be39cadb0628ad591531/PGA23-WEBSITE-SKU-TIGERWOODS_KA.png",
+  image: "https://store-images.s-microsoft.com/image/apps.887.14209932322280602.9031c1bf-025a-418d-9759-9d9eca3fc5c1.6f188e0c-63b5-45cc-ac87-79aaaf44a1fc",
   title: "PGA TOUR 2K23",
   price: 59.99,
   genre: "Sports",
