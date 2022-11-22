@@ -1,6 +1,9 @@
 import React from "react"
 import ReviewCard from "../components/ReviewCard"
 import GameCard from "../components/GameCard"
+import AccountCircleIcon from "@mui/icons-material/AccountCircle"
+import ChatIcon from "@mui/icons-material/Chat"
+import BorderColorIcon from "@mui/icons-material/BorderColor"
 
 const Home = ({
   logged_in,
@@ -10,6 +13,7 @@ const Home = ({
   sign_out_route,
   games,
   reviews,
+  deleteReview,
 }) => {
   let randomGame = Math.floor(Math.random() * games.length + 1)
 
@@ -108,36 +112,41 @@ const Home = ({
             </div>
             <div className="how-card-container">
               <div className="how-card">
-                <div className="how-image mar-btm-sm">
-                  <p>Sign Up</p>
+                <div className="flex-column">
+                  <AccountCircleIcon sx={{ fontSize: "6.2rem" }} />
+                  <h3>Sign Up</h3>
                 </div>
                 <div className="how-text">
                   <p>
-
-                    Create an account using your email and a password. Add a username so our community knows who you are! 
-
-                    Here at The Gamer Lounge, we give the power back to gamers like you! Create an account, search through our library and share your thoughts with others! 
-
+                    Here at The Gamer Lounge, we give the power back to gamers
+                    like you! Create an account, add a username, search through
+                    our library of games, and share your thoughts with others!
                   </p>
                 </div>
               </div>
               <div className="how-card">
-                <div className="how-image mar-btm-sm">
-                  <p>Browse Reviews</p>
+                <div className="flex-column">
+                  <ChatIcon sx={{ fontSize: "6.2rem" }} />
+                  <h3>Browse Reviews</h3>
                 </div>
                 <div className="how-text">
                   <p>
-                    Search our game library to find your favorite games and see why other people enjoy it, See your most recently viewed games and reviews to hot-drop right back into the action.
+                    Search our game library to find your favorite games and see
+                    why other people enjoy it, See your most recently viewed
+                    games and reviews to hot-drop right back into the action.
                   </p>
                 </div>
               </div>
               <div className="how-card">
-                <div className="how-image mar-btm-sm">
-                  <p>Write Your Own</p>
+                <div className="flex-column">
+                  <BorderColorIcon sx={{ fontSize: "6.2rem" }} />
+                  <h3>Write Your Own</h3>
                 </div>
                 <div className="how-text">
                   <p>
-                    We want to hear your thoughts! Tell us why you love your favorite game, or why you wouldn't wish it on your worst enemy. Quit wasting time and start #lounging today!
+                    We want to hear your thoughts! Tell us why you love your
+                    favorite game, or why you wouldn't wish it on your worst
+                    enemy. Quit wasting time and start #lounging today!
                   </p>
                 </div>
               </div>

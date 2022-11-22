@@ -361,7 +361,7 @@ h2 {
   gap: 1.6rem;
   border-radius: 5px;
   padding: 1.2rem 1.8rem;
-  height: 50rem;
+  height: 52rem;
   max-width: 55rem;
   background-color: #161b21;
 }
@@ -651,10 +651,15 @@ h2 {
 }
 
 .how-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
   background-color: #5d02a8da;
   padding: 2.4rem;
   width: 30rem;
   border-radius: 5px;
+  height: 38rem;
 }
 
 .how-image {
@@ -711,7 +716,6 @@ h2 {
   align-self: flex-start;
 }
 
-
 /* ----------------------------------------------------- */
 /*-------------------- LOGIN SECTION --------------------*/
 /* --------------------------------------------------- */
@@ -737,7 +741,7 @@ h2 {
 }
 
 .remember-me {
-  display:flex;
+  display: flex;
   flex-direction: row;
   padding: 1rem;
 }
@@ -747,10 +751,10 @@ h2 {
 }
 
 .login-form-links {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .footer-container a:hover {
@@ -770,4 +774,3 @@ margin-top: 2rem;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
