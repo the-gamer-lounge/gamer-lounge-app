@@ -120,11 +120,7 @@ const Home = ({
                 </div>
                 <div className="how-text">
                   <p>
-                    orem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
+                    Create an account using your email and a password. Add a username so our community knows who you are! 
                   </p>
                 </div>
               </div>

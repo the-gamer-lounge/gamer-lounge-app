@@ -653,3 +653,44 @@ align-items: center;
 .footer-devise {
   align-self: flex-start;
 }
+
+/* ----------------------------------------------------- */
+/*-------------------- LOGIN SECTION --------------------*/
+/* --------------------------------------------------- */
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15rem;
+}
+
+.login-title {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.remember-me {
+  display:flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.actions {
+  margin-bottom: -1rem;
+}
+
+.login-form-links {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 2rem;
+}
