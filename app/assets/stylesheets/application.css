@@ -761,6 +761,28 @@ margin-top: 2rem;
 }
 
 /* ----------------------------------------------------- */
+/*-------------------- SIGN UP SECTION --------------------*/
+/* --------------------------------------------------- */
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rem;
+}
+
+.signup-text {
+  display: flex;
+}
+
+.signup-actions {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* ----------------------------------------------------- */
 /*----------------------- HEADER -----------------------*/
 /* --------------------------------------------------- */
 
