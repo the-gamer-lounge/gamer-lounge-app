@@ -20,14 +20,15 @@ const Footer = ({
             </a>
           )}
           {!logged_in && (
-            <a href={new_user_route} className="footer-devise">
-              Sign Up
-            </a>
-          )}
-          {!logged_in && (
-            <a href={sign_in_route} className="footer-devise">
-              Sign In
-            </a>
+            <div className="flex-row">
+              <a href={new_user_route} className="footer-devise">
+                Sign Up
+              </a>
+
+              <a href={sign_in_route} className="footer-devise">
+                Sign In
+              </a>
+            </div>
           )}
           <p>
             &copy;

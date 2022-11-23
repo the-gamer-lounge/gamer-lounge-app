@@ -26,7 +26,7 @@ const App = (props) => {
   }, [])
 
   const readGame = () => {
-    fetch("http://localhost:3000/games")
+    fetch("/games")
       .then((response) => response.json())
       .then((payload) => {
         setGames(payload)
@@ -35,7 +35,7 @@ const App = (props) => {
   }
 
   const readReview = () => {
-    fetch("http://localhost:3000/reviews")
+    fetch("/reviews")
       .then((response) => response.json())
       .then((payload) => {
         setReviews(payload)
@@ -57,7 +57,7 @@ const App = (props) => {
   }
 
   const updateReview = (review, id) => {
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`/reviews/${id}`, {
       body: JSON.stringify(review),
       headers: {
         "Content-Type": "application/json",

@@ -10,9 +10,12 @@ const ReviewProtectedIndex = ({
   handleClick,
 }) => {
   if (logged_in) {
+    let userReviewLength = reviews?.filter(
+      (review) => review.user_id === current_user.id
+    ).length
     return (
-      <div className="nav-top-mar mar-btm-md">
-        <h2 className="flex-center">Reviews</h2>
+      <div className="nav-top-mar mar-btm-md footer-bottom-wrapper">
+        <h2 className="flex-center mar-btm-md">Your Reviews:</h2>
         <Grid
           container
           justifyContent="center"
@@ -26,6 +29,15 @@ const ReviewProtectedIndex = ({
             margin: "0 auto",
           }}
         >
+          {userReviewLength === 0 && (
+            <div className="no-review-text mar-btm-md flex-column">
+              <h3>You don't currently have any reviews.</h3>
+              <h3>
+                Maybe it's time to&nbsp;
+                <a href="/gameindex">check out some games?</a>
+              </h3>
+            </div>
+          )}
           {reviews
             ?.filter((review) => review.user_id === current_user.id)
             .map((review, index) => {
