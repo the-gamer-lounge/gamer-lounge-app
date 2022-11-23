@@ -14,7 +14,7 @@ const ReviewProtectedIndex = ({
       (review) => review.user_id === current_user.id
     ).length
     return (
-      <div className="nav-top-mar mar-btm-md footer-bottom-wrapper">
+      <div className=" nav-top-mar mar-btm-md footer-bottom-wrapper">
         <h2 className="flex-center mar-btm-md">Your Reviews:</h2>
         <Grid
           container

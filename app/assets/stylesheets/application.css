@@ -344,7 +344,11 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: 1.2rem;
-  height: 40vh;
+  height: 50vh;
+}
+
+.show-reviews {
+  height: 50vh;
 }
 
 .game-show-card p {
@@ -441,6 +445,12 @@ h2 {
   border-radius: 5px;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+.no-review-text {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .no-review-text a {
