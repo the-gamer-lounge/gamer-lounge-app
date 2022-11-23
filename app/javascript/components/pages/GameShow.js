@@ -1,8 +1,9 @@
-import React from "react"
-import { render } from "react-dom"
-import { useParams } from "react-router-dom"
-import { Grid } from "@mui/material"
-import ReviewCard from "../components/ReviewCard"
+import React from "react";
+import { render } from "react-dom";
+import { useParams } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { API_RESPONSE } from "../components/apiresponse";
+import ReviewCard from "../components/ReviewCard";
 
 const GameShow = ({
   games,
@@ -11,11 +12,18 @@ const GameShow = ({
   logged_in,
   deleteReview,
 }) => {
-  const { id } = useParams()
-  const showGame = games?.find((game) => game.id === +id)
+  const { id } = useParams();
+  const apiShowGame = apiGames?.find((game) => {
+    return game.id === +id;
+  }).map((game) => {
+    return {
+      image: game.background_image,
+      
+    }
+  })
   return (
     <>
-      {showGame && (
+      {apiShowGame && (
         <div className="show-game-wrapper nav-top-mar">
           <div
             className="game-show-card mar-btm-md"
@@ -24,7 +32,7 @@ const GameShow = ({
                 "linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9))," +
                 "url(" +
                 "" +
-                `${showGame.image}` +
+                `${apiShowGame.background_image}` +
                 ")",
               backgroundPosition: "center",
               backgroundSize: "cover",
@@ -35,11 +43,11 @@ const GameShow = ({
               <div className="flex-column title-desc-box">
                 <div className="flex-column">
                   <h4>Title:</h4>
-                  <p>{showGame.title}</p>
+                  <p>{apiShowGame.name}</p>
                 </div>
                 <div className="flex-column desc-width">
                   <h4>Description:</h4>
-                  <p className="game-description">{showGame.description}</p>
+                  {/* <p className="game-description">{showGame.description}</p> */}
                 </div>
               </div>
               <div>
@@ -50,11 +58,26 @@ const GameShow = ({
                 )}
               </div>
             </div>
+            {/* <div className="game-info-2">
+              <h4>Price</h4>
+              <p>{showGame.price}</p>
+              <h4>Release Date:</h4>
+              <p>{apiGames.released}</p>
+              <h4>Developers</h4>
+              <p>{showGame.developer}</p>
+              <h4>Platforms</h4>
+              <p>{showGame.platforms}</p>
+              <h4>Single/Multiplayer</h4>
+              <p>{showGame.player}</p>
+              <h4>Genre</h4>
+              <p>{showGame.genre}</p>
+            </div> */}
+            <div className="flex-row"></div>
             <div className="game-info-all flex-column">
               <div className="flex-row">
                 <div className="flex-column">
                   <h4>Release Date:</h4>
-                  <p>{showGame.release}</p>
+                  <p>{apiShowGame.released_at}</p>
                 </div>
                 <div className="flex-column">
                   <h4>Price:</h4>
@@ -81,6 +104,40 @@ const GameShow = ({
               </div>
             </div>
           </div>
+          <Grid
+            container
+            rowSpacing={3}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
+            {reviews
+              ?.filter((review) => review.game_id === apiShowGame.id)
+              .map((review, index) => {
+                return (
+                  <Grid item key={index}>
+                    <div className="review-card">
+                      <div className="flex-row">
+                        <div>
+                          <h4>Username:</h4>
+                          <p>{review.username}</p>
+                          <h4>Difficulty:</h4>
+                          <p>{review.difficulty}</p>
+                          <h4>Accessibility</h4>
+                          <p>{review.accessibility}</p>
+                        </div>
+                        <div>
+                          <h4>Rating:</h4>
+                          <p>{review.rating}</p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Review:</h4>
+                        <p>{review.review}</p>
+                      </div>
+                    </div>
+                  </Grid>
+                );
+              })}
+          </Grid>
           <div className="mar-btm-lg">
             <Grid
               container
@@ -101,11 +158,11 @@ const GameShow = ({
                   const handleClick = () => {
                     const response = confirm(
                       "Are you sure you want to delete this review as this cannot be undone."
-                    )
+                    );
                     if (response) {
-                      deleteReview(review.id)
+                      deleteReview(review.id);
                     }
-                  }
+                  };
                   return (
                     <Grid item key={index}>
                       <ReviewCard
@@ -115,14 +172,14 @@ const GameShow = ({
                         handleClick={handleClick}
                       />
                     </Grid>
-                  )
+                  );
                 })}
             </Grid>
           </div>
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default GameShow
+export default GameShow;

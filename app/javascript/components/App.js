@@ -10,12 +10,28 @@ import EditProtected from "./pages/EditProtected"
 import CreateProtected from "./pages/CreateProtected"
 import NotFound from "./pages/NotFound"
 import Footer from "./components/Footer"
+import { API_RESPONSE } from "./components/apiresponse"
+
+// GET https://api.rawg.io/api/platforms?key=YOUR_API_KEY
+// GET https://api.rawg.io/api/games?key=YOUR_API_KEY&dates=2019-09-01,2019-09-30&platforms=18,1,7
+const fetchGames = async() => {
+try {
+  const url = `https://api.rawg.io/api/games?key=7967143913c34b3582a6cdc1e0c7411f&`
+  const res = await fetch (url)
+  const json = await res.json()
+  console.log(json)
+  return json
+} catch (error) {
+  console.error(error)
+}
+}
 
 const App = (props) => {
   const [games, setGames] = useState([])
   const [reviews, setReviews] = useState([])
   const [foundGames, setFoundGames] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
+  const [apiGames, setapiGames] = useState([])
 
   useEffect(() => {
     readGame()
@@ -24,6 +40,13 @@ const App = (props) => {
   useEffect(() => {
     readReview()
   }, [])
+
+  useEffect(() => {
+    // fetchGames().then(json => {
+    //   setapiGames(json.results)
+    // })
+    setapiGames(API_RESPONSE.results)
+  })
 
   const readGame = () => {
     fetch("/games")
@@ -105,13 +128,13 @@ const App = (props) => {
 
           <Route
             path="/gameindex"
-            element={<GameIndex games={games} {...props} />}
+            element={<GameIndex games={apiGames} {...props} />}
           />
           <Route
             path="/gameshow/:id"
             element={
               <GameShow
-                games={games}
+                games={apiGames}
                 reviews={reviews}
                 {...props}
                 deleteReview={deleteReview}
@@ -151,6 +174,9 @@ const App = (props) => {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <button onClick={fetchGames}>
+          Get Data
+        </button>
         <Footer {...props} />
       </BrowserRouter>
     </>

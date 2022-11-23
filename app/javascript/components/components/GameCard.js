@@ -4,9 +4,9 @@ const GameCard = ({ game, logged_in }) => {
   return (
     <div className="game-card">
       <div className="game-img mar-btm-xs">
-        <img src={game.image} />
+        <img src={game.background_image} />
       </div>
-      <p className="mar-btm-xs">{game.title}</p>
+      <p className="mar-btm-xs">{game.name}</p>
       <div className="flex-row">
         <a href={`/gameshow/${game.id}`} className="btn">
           See Reviews
