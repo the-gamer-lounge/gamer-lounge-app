@@ -51,7 +51,7 @@ const Home = ({
 
               <div className="recent-reviews">
                 <h3 className="flex-center mar-btm-sm">Your Last Review:</h3>
-                <div className="review-map-home flex-row">
+                <div className="review-map-home flex-row mar-btm-xs">
                   {userReviewLength === 0 && (
                     <div className="no-review-text mar-btm-md flex-column">
                       <h3>You don't currently have any reviews.</h3>

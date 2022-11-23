@@ -13,6 +13,10 @@ const GameShow = ({
 }) => {
   const { id } = useParams()
   const showGame = games?.find((game) => game.id === +id)
+  let userReviewLength = reviews?.filter(
+    (review) => review?.game_id === showGame?.id
+  ).length
+  console.log(userReviewLength)
   return (
     <>
       {showGame && (
@@ -81,7 +85,16 @@ const GameShow = ({
               </div>
             </div>
           </div>
-          <div className="mar-btm-lg">
+          <div className="show-reviews mar-btm-lg">
+            {userReviewLength === 0 && (
+              <div className="no-review-text flex-column">
+                <h3>This game currently has no reviews.</h3>
+                <h3>
+                  Would you like to&nbsp;
+                  <a href={`/createprotected/${showGame.id}`}>create one?</a>
+                </h3>
+              </div>
+            )}
             <Grid
               container
               justifyContent="center"
