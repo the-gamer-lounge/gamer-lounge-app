@@ -16,7 +16,7 @@ const GameShow = ({
   return (
     <>
       {showGame && (
-        <div className="show-game-wrapper nav-top-mar">
+        <div className="show-game-wrapper footer-bottom-wrapper nav-top-mar">
           <div
             className="game-show-card mar-btm-md"
             style={{
@@ -113,6 +113,7 @@ const GameShow = ({
                         current_user={current_user}
                         index={index}
                         handleClick={handleClick}
+                        logged_in={logged_in}
                       />
                     </Grid>
                   )

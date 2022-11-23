@@ -20,7 +20,7 @@ const Footer = ({
             </a>
           )}
           {!logged_in && (
-            <div className="flex-row">
+            <div className="signed-out-footer-links flex-row">
               <a href={new_user_route} className="footer-devise">
                 Sign Up
               </a>

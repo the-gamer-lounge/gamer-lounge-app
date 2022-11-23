@@ -22,7 +22,7 @@ const Home = ({
     return (
       <>
         {/* This is for the home page animation */}
-        <div className="logged-in-wrapper flex-center">
+        <div className="logged-in-wrapper footer-bottom-wrapper flex-center">
           <ul className="circles">
             <li></li>
             <li></li>
@@ -44,8 +44,8 @@ const Home = ({
                 )
               })}
             </div>
-            <div className="welcome-column">
-              <h4 className="flex-center mar-btm-md welcome-header">
+            <div className="welcome-column flex-column">
+              <h4 className=" mar-btm-md welcome-header">
                 Welcome Back, {current_user.username}!
               </h4>
 
@@ -81,6 +81,7 @@ const Home = ({
                             current_user={current_user}
                             index={index}
                             handleClick={handleClick}
+                            logged_in={logged_in}
                           />
                         </div>
                       )
@@ -181,47 +182,78 @@ const Home = ({
                 <h2>About Us</h2>
               </div>
               <div className="about-card flex-row mar-btm-sm">
-                <div className="image-circle"></div>
+                <div
+                  className="image-circle"
+                  style={{
+                    background:
+                      "url(" + "https://i.imgur.com/pU0HklB.jpg" + ")",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
                 <div className="about-me-text">
-                  <h3>Design Lead:&nbsp;Ari Brashear</h3>
+                  <h3>
+                    Design Lead:&nbsp;<span>Ari Brashear</span>
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
-                    Orci varius natoque penatibus et magnis dis parturient
-                    montes.
+                    I’m a full-stack developer student at LEARN Academy, a
+                    4-month coding bootcamp here in San Diego that’s helped me
+                    learn the foundational skills of becoming a web developer. I
+                    love getting to work with people and help break down their
+                    complex problems into digestible solutions, so coding has
+                    been a very natural transition for me! I’m especially
+                    passionate about UI/UX, and making websites accessible and
+                    intuitive for users.
                   </p>
                 </div>
               </div>
               <div className="about-card flex-row mar-btm-sm">
                 <div className="about-me-text ">
-                  <h3>Product Manager:&nbsp;Zack Rohde</h3>
+                  <h3>
+                    Product Manager:&nbsp;<span>Zack Rohde</span>
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
-                    Orci varius natoque penatibus et magnis dis parturient
-                    montes.
+                    Hey! My name is Zack Rohde and I am a full stack engineer
+                    that transitioned from the Marine Corps Infantry. Video
+                    games have always been a big part of my life and creating a
+                    website that I could rely on to get the best reviews just
+                    wasn’t out there.. The Gamer Lounge did just that with more
+                    to come.
                   </p>
                 </div>
-                <div className="image-circle"></div>
+                <div
+                  className="image-circle"
+                  style={{
+                    background:
+                      "url(" + "https://i.imgur.com/CSqvKWi.png" + ")",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
               <div className="about-card flex-row mar-btm-sm">
-                <div className="image-circle"></div>
+                <div
+                  className="image-circle"
+                  style={{
+                    background:
+                      "url(" + "https://i.imgur.com/UUyoBev.jpg" + ")",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
                 <div className="about-me-text ">
-                  <h3>Tech Lead:&nbsp;Matthew Rhodes</h3>
+                  <h3>
+                    Tech Lead:&nbsp;<span>Matthew Rhodes</span>
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum non eleifend nisi, eget suscipit orci. Ut congue
-                    sed mi eu consectetur. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus. Vivamus id posuere neque. Orci
-                    varius natoque penatibus et magnis dis parturient montes.
-                    Orci varius natoque penatibus et magnis dis parturient
-                    montes.
+                    Hi, I’m my name is Matthew Rhodes! I am a full-stack
+                    software developer who found a passion for software while
+                    serving as a Submarine Sonar Technician. I love playing
+                    video games, spending time with my dogs, and traveling with
+                    my beautiful girlfriend Josie. See you in the Warzone!
                   </p>
                 </div>
               </div>
