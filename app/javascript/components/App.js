@@ -93,7 +93,14 @@ const App = (props) => {
         <Routes>
           <Route
             path="/"
-            element={<Home {...props} games={games} reviews={reviews} />}
+            element={
+              <Home
+                {...props}
+                games={games}
+                reviews={reviews}
+                deleteReview={deleteReview}
+              />
+            }
           />
 
           <Route

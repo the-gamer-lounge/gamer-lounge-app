@@ -81,44 +81,44 @@ const GameShow = ({
               </div>
             </div>
           </div>
-          <h2 className="flex-center">Reviews:</h2>
-          <Grid
-            container
-            justifyContent="center"
-            alignItems="center"
-            rowSpacing={3}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto",
-            }}
-            className="mar-btm-md"
-          >
-            {reviews
-              ?.filter((review) => review.game_id === showGame.id)
-              .map((review, index) => {
-                const handleClick = () => {
-                  const response = confirm(
-                    "Are you sure you want to delete this review as this cannot be undone."
-                  )
-                  if (response) {
-                    deleteReview(review.id)
+          <div className="mar-btm-lg">
+            <Grid
+              container
+              justifyContent="center"
+              alignItems="center"
+              rowSpacing={3}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto",
+              }}
+            >
+              {reviews
+                ?.filter((review) => review.game_id === showGame.id)
+                .map((review, index) => {
+                  const handleClick = () => {
+                    const response = confirm(
+                      "Are you sure you want to delete this review as this cannot be undone."
+                    )
+                    if (response) {
+                      deleteReview(review.id)
+                    }
                   }
-                }
-                return (
-                  <Grid item key={index}>
-                    <ReviewCard
-                      review={review}
-                      current_user={current_user}
-                      index={index}
-                      handleClick={handleClick}
-                    />
-                  </Grid>
-                )
-              })}
-          </Grid>
+                  return (
+                    <Grid item key={index}>
+                      <ReviewCard
+                        review={review}
+                        current_user={current_user}
+                        index={index}
+                        handleClick={handleClick}
+                      />
+                    </Grid>
+                  )
+                })}
+            </Grid>
+          </div>
         </div>
       )}
     </>

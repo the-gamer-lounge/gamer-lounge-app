@@ -3,17 +3,11 @@ import Rating from "@mui/material/Rating"
 import { Avatar } from "@mui/material"
 
 const ReviewCard = ({ review, current_user, index, handleClick }) => {
-
   return (
     <div className="review-card" key={index}>
       <div className="top-review">
         <div>
           <div className="flex-row mar-btm-xs">
-            {/* <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-              alt="user-icon"
-              className="user-img"
-            /> */}
             <Avatar alt="Remy Sharp" src="" />
             <p className="review-username">{review.username}</p>
           </div>
@@ -39,14 +33,16 @@ const ReviewCard = ({ review, current_user, index, handleClick }) => {
       <div className="bottom-review">
         <p>{review.review_text}</p>
       </div>
-      <div className="flex-row">
-        <a href={`/editprotected/${review.id}`} className="btn">
-          Edit Review
-        </a>
-        <a href="#" onClick={handleClick} className="btn">
-          Delete Review
-        </a>
-      </div>
+      {current_user.id === review.user_id && (
+        <div className="flex-row">
+          <a href={`/editprotected/${review.id}`} className="btn">
+            Edit Review
+          </a>
+          <a href="#" onClick={handleClick} className="btn">
+            Delete Review
+          </a>
+        </div>
+      )}
     </div>
   )
 }

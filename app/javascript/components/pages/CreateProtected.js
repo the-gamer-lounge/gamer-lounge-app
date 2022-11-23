@@ -44,7 +44,7 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
     setNewReview(parseInt(newReview.difficulty))
     setNewReview(parseFloat(newReview.rating))
     createReview(newReview)
-    navigate("/gameindex")
+    navigate(`/gameshow/${id}`)
   }
 
   return (
@@ -135,8 +135,8 @@ const CreateProtected = ({ current_user, logged_in, games, createReview }) => {
                   fullWidth
                   required
                   type="text"
-                  sx={{ backgroundColor: "#2d3237" }}
                   inputProps={{ maxLength: 1500 }}
+                  sx={{ backgroundColor: "#2d3237" }}
                 />
                 <FormHelperText>
                   If you answered "Yes" to accessibility options, please include

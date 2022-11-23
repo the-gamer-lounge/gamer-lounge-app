@@ -104,6 +104,12 @@ a {
   flex-wrap: wrap;
 }
 
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 /* ------------------------------------------------------------------------------------------ */
 /*------------------------------------ UNIVERSAL MARGIN -------------------------------------*/
 /* ---------------------------------------------------------------------------------------- */
@@ -134,7 +140,7 @@ a {
 }
 
 .footer-bottom-wrapper {
-  height: 95vh;
+  min-height: 85vh;
 }
 
 h1 {
@@ -194,15 +200,14 @@ h2 {
 }
 
 .home-btn {
-  border: 1px solid red;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 400;
   padding: 1rem 2rem;
   text-decoration: none;
   border: none;
   outline: none;
   color: #fff;
-  background: #0b0b0b;
+  background: #020307;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -239,7 +244,6 @@ h2 {
 
 .home-btn:active:after {
   color: #fff;
-  background: rgba(0, 0, 0, 0.707);
 }
 
 .home-btn:hover:before {
@@ -252,10 +256,14 @@ h2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #0b0b0b;
+  background: #020307;
   left: 0;
   top: 0;
   border-radius: 5px;
+}
+
+.home-btn-alt:after {
+  background: linear-gradient(50deg, #b100ca, #05d2ed);
 }
 
 @keyframes glowing {
@@ -294,7 +302,7 @@ h2 {
 
 .game-img {
   width: 30rem;
-  height: 25rem;
+  height: 15rem;
   overflow: hidden;
 }
 
@@ -361,8 +369,8 @@ h2 {
   gap: 1.6rem;
   border-radius: 5px;
   padding: 1.2rem 1.8rem;
-  height: 50rem;
-  max-width: 55rem;
+  max-height: 52rem;
+  width: 60rem;
   background-color: #161b21;
 }
 
@@ -373,8 +381,8 @@ h2 {
 }
 
 .review-username {
-  font-size: 2.4rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .review-difficulty {
@@ -410,6 +418,14 @@ h2 {
   border-radius: 5px;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+.no-review-text a {
+  color: #b100ca;
+}
+
+.no-review-text a:hover {
+  color: #05d2ed;
 }
 
 /* ----------------------------------------------------------------- */
@@ -468,6 +484,10 @@ h2 {
   width: 100%;
   height: 100vh;
   position: relative;
+}
+
+.logged-out-wrapper {
+  background-color: #020307;
 }
 
 .dashboard-home {
@@ -615,12 +635,13 @@ h2 {
 
 .hero-content {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.8),
-      rgb(0, 0, 0)
+      rgba(2, 3, 7, 0.1),
+      rgba(2, 3, 7, 0.3),
+      rgba(2, 3, 7, 0.5),
+      rgba(2, 3, 7, 0.6),
+      rgba(2, 3, 7, 0.8),
+      rgb(2, 3, 7),
+      rgb(2, 3, 7)
     ),
     url(https://images.unsplash.com/photo-1546640646-89b557854b23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80);
   height: 100vh;
@@ -651,19 +672,39 @@ h2 {
 }
 
 .how-card {
-  background-color: #5d02a8da;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(
+    50deg,
+    rgb(177, 0, 202, 0.6),
+    rgb(5, 210, 237, 0.6)
+  );
   padding: 2.4rem;
   width: 30rem;
   border-radius: 5px;
+  height: 38rem;
 }
 
-.how-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #05d2ed;
-  width: 100%;
-  height: 17.8rem;
+.how-card h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.how-card p {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+
+.about-me-text {
+  padding: 1.2rem 1.6rem;
+  border-radius: 5px;
+  background: linear-gradient(
+    -50deg,
+    rgb(177, 0, 202, 0.6),
+    rgb(5, 210, 237, 0.6)
+  );
 }
 
 /* ------------------------------------------------------------ */
@@ -711,7 +752,6 @@ h2 {
   align-self: flex-start;
 }
 
-
 /* ----------------------------------------------------- */
 /*-------------------- LOGIN SECTION --------------------*/
 /* --------------------------------------------------- */
@@ -737,7 +777,7 @@ h2 {
 }
 
 .remember-me {
-  display:flex;
+  display: flex;
   flex-direction: row;
   padding: 1rem;
 }
@@ -747,10 +787,10 @@ h2 {
 }
 
 .login-form-links {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .footer-container a:hover {
@@ -792,4 +832,3 @@ margin-top: 2rem;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
