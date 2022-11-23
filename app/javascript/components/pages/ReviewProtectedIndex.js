@@ -56,6 +56,7 @@ const ReviewProtectedIndex = ({
                     current_user={current_user}
                     index={index}
                     handleClick={handleClick}
+                    logged_in={logged_in}
                   />
                 </Grid>
               )

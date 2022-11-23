@@ -2,7 +2,15 @@ import React, { useState } from "react"
 import Rating from "@mui/material/Rating"
 import { Avatar } from "@mui/material"
 
-const ReviewCard = ({ review, current_user, index, handleClick }) => {
+const ReviewCard = ({
+  review,
+  current_user,
+  index,
+  handleClick,
+  logged_in,
+}) => {
+  if (!logged_in) {
+  }
   return (
     <div className="review-card" key={index}>
       <div className="top-review">
@@ -33,7 +41,7 @@ const ReviewCard = ({ review, current_user, index, handleClick }) => {
       <div className="bottom-review">
         <p>{review.review_text}</p>
       </div>
-      {current_user.id === review.user_id && (
+      {logged_in && current_user.id === review.user_id && (
         <div className="flex-row">
           <a href={`/editprotected/${review.id}`} className="btn">
             Edit Review

@@ -140,7 +140,7 @@ a {
 }
 
 .footer-bottom-wrapper {
-  min-height: 85vh;
+  min-height: 100vh;
 }
 
 h1 {
@@ -165,11 +165,29 @@ h2 {
 /* ---------------------------------------------------------------------------------------- */
 
 .btn {
+  cursor: pointer;
   padding: 0.8rem 1.2rem;
-  background-color: #dd00f3;
-  border-radius: 5px;
   font-size: 1.2rem;
   font-weight: 400;
+  transition: 0.5s;
+  background-size: 200% auto;
+  border-radius: 5px;
+  border: 0px;
+  background-image: linear-gradient(
+    45deg,
+    #b100ca 0%,
+    #d066df 51%,
+    #b100ca 100%
+  );
+}
+
+.btn:hover {
+  background-position: right center;
+  /* change the direction of the shift here */
+}
+
+.shine-btn:active {
+  transform: scale(0.95);
 }
 
 .shine-btn {
@@ -336,13 +354,18 @@ h2 {
 }
 
 .game-title-desc {
-  height: 40vh;
+  height: 50vh;
   flex-grow: 1;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.game-description {
+  max-height: 19rem;
+  overflow: auto;
 }
 
 .title-desc-box {
@@ -476,7 +499,7 @@ h2 {
   justify-self: flex-start;
 }
 /* ------------------------------------------------------------------ */
-/* ------------------------ LOGGED-IN HOME ------------------------  */
+/* ------------------------ HOME ------------------------  */
 /* ---------------------------------------------------------------- */
 
 .logged-in-wrapper {
@@ -488,6 +511,20 @@ h2 {
 
 .logged-out-wrapper {
   background-color: #020307;
+}
+
+.about-me-text h3 {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.about-me-text p {
+  font-weight: 200;
+}
+
+.about-me-text span {
+  font-weight: 2.2rem;
+  font-weight: 400;
 }
 
 .dashboard-home {
@@ -640,7 +677,6 @@ h2 {
       rgba(2, 3, 7, 0.5),
       rgba(2, 3, 7, 0.6),
       rgba(2, 3, 7, 0.8),
-      rgb(2, 3, 7),
       rgb(2, 3, 7)
     ),
     url(https://images.unsplash.com/photo-1546640646-89b557854b23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80);
@@ -752,6 +788,10 @@ h2 {
   align-self: flex-start;
 }
 
+.signed-out-footer-links {
+  align-self: flex-start;
+}
+
 /* ----------------------------------------------------- */
 /*-------------------- LOGIN SECTION --------------------*/
 /* --------------------------------------------------- */
@@ -832,3 +872,38 @@ h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.mobile-menu a {
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 0.7px;
+}
+
+.mobile-menu a:hover {
+  font-weight: 700;
+  cursor: pointer;
+  background: -webkit-linear-gradient(50deg, #b100ca, #05d2ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------------------------- */
+/* --------------------------- NOT FOUND ----------------------------  */
+/* ------------------------------------------------------------------ */
+
+/* -------------------------------------------------------------------- */
+/* ------------------------- RADIO BUTTONS --------------------------  */
+/* ------------------------------------------------------------------ */
+
+.game-filter-wrapper span {
+  font-size: 1.2rem;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/*------------------------------------- MEDIA QUERIES ---------------------------------------*/
+/* ---------------------------------------------------------------------------------------- */
+/* REM and EM do NOT depend on HTML font size in media queries! Instead, we assume that: 
+1rem = 1em = 16px. */

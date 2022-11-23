@@ -84,25 +84,16 @@ const Header = ({
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 {/* This is the MOBILE menu. It is not shown on desktop views. */}
-                <div className="flex-column">
+                <div className="flex-column mobile-menu">
                   <a href="/">
-                    <span className="flex-center">
-                      <HomeIcon />
-                      &nbsp;Home
-                    </span>
+                    <span className="flex-center">&nbsp;Home</span>
                   </a>
                   <a href="/gameindex">
-                    <span className="flex-center">
-                      <SportsEsportsIcon />
-                      &nbsp;Games
-                    </span>
+                    <span className="flex-center">&nbsp;Games</span>
                   </a>
                   {logged_in && (
                     <a href="/reviewprotectedindex">
-                      <span className="flex-center">
-                        <ChatIcon />
-                        &nbsp;My Reviews
-                      </span>
+                      <span className="flex-center">&nbsp;My Reviews</span>
                     </a>
                   )}
                   {logged_in && <a href={sign_out_route}>Log Out</a>}
