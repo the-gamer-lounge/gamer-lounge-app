@@ -156,7 +156,7 @@ const App = (props) => {
             element={
               <EditProtected
                 reviews={reviews}
-                games={games}
+                games={apiGames}
                 updateReview={updateReview}
                 {...props}
               />
@@ -167,7 +167,7 @@ const App = (props) => {
             element={
               <CreateProtected
                 {...props}
-                games={games}
+                games={apiGames}
                 createReview={createReview}
               />
             }

@@ -13,18 +13,13 @@ const GameShow = ({
   deleteReview,
 }) => {
   const { id } = useParams();
-  const apiShowGame = apiGames?.find((game) => {
+  const apiShowGame = games?.find((game) => {
     return game.id === +id;
-  }).map((game) => {
-    return {
-      image: game.background_image,
-      
-    }
   })
   return (
     <>
       {apiShowGame && (
-        <div className="show-game-wrapper nav-top-mar">
+        <div className="show-game-wrapper nav-top-mar footer-bottom-wrapper">
           <div
             className="game-show-card mar-btm-md"
             style={{
@@ -81,25 +76,25 @@ const GameShow = ({
                 </div>
                 <div className="flex-column">
                   <h4>Price:</h4>
-                  <p>${showGame.price}</p>
+                  {/* <p>${showGame.price}</p> */}
                 </div>
                 <div className="flex-column">
                   <h4>Genre(s):</h4>
-                  <p>{showGame.genre}</p>
+                  {/* <p>{showGame.genre}</p> */}
                 </div>
               </div>
               <div className="game-devs desc-width flex-column">
                 <h4>Developers:</h4>
-                <p>{showGame.developer}</p>
+                {/* <p>{showGame.developer}</p> */}
               </div>
               <div className="flex-row desc-width">
                 <div className="flex-column">
                   <h4>Platforms:</h4>
-                  <p>{showGame.platforms}</p>
+                  {/* <p>{showGame.platforms}</p> */}
                 </div>
                 <div className="flex-column">
                   <h4>Single/Multiplayer</h4>
-                  <p>{showGame.player}</p>
+                  {/* <p>{showGame.player}</p> */}
                 </div>
               </div>
             </div>
@@ -153,7 +148,7 @@ const GameShow = ({
               }}
             >
               {reviews
-                ?.filter((review) => review.game_id === showGame.id)
+                ?.filter((review) => review.game_id === apiShowGame.id)
                 .map((review, index) => {
                   const handleClick = () => {
                     const response = confirm(
